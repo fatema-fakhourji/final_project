@@ -1,0 +1,562 @@
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slideP {
+  display: inline-block;
+
+  height: 400px;
+  width: 100%;
+}
+a {
+  color: black !important;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: black;
+}
+
+.navbar-container {
+  width: 100%;
+  background-color: #000000;
+  height: 4vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logoimg {
+  height: 100%;
+}
+
+.child {
+  position: relative;
+}
+
+.discount {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-size: 25px;
+}
+.last-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+}
+
+.navigation-buttons {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-buttons {
+  color: white;
+  font-size: 1.5vw;
+}
+
+.cartlogo {
+  height: 70%;
+  width: 3vw;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0px;
+  transition: all 1s ease;
+  height: 100%;
+  margin-top: 0px;
+}
+
+.slideshow-container {
+  width: 100%;
+  height: 40vw;
+  overflow: hidden;
+  border-radius: 3px;
+  padding-top: 0px;
+}
+
+.imgg {
+  width: 100vw;
+  height: 100%;
+}
+
+li {
+  width: 100%;
+}
+
+.winter-collection {
+  height: 30vw;
+
+  margin-bottom: 2vw;
+}
+
+.scroll-collection {
+  width: 100%;
+  height: 85%;
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.cover {
+  position: relative;
+  width: 80%;
+}
+
+.scroll-devs {
+  width: 82%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  margin-left: 10%;
+}
+
+.scroll-devos {
+  width: 82%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  margin-left: 10%;
+}
+
+.child {
+  min-width: 19vw;
+  height: 431px;
+  margin: 8px 22px;
+  cursor: pointer;
+  border: 2px solid grey;
+  border-radius: 35px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.child-image {
+  width: 290px;
+  height: 285px;
+}
+
+.leftarrow {
+  background: none;
+  border: 0px;
+}
+
+.arrows-heights {
+  height: 100%;
+  width: 3.5vw;
+}
+
+.parent-arrow {
+  align-self: center;
+
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.child-image-button {
+  height: 3vw;
+  width: 80%;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.heading-collection {
+  font-size: 3vw;
+  text-align: center;
+}
+
+.pablo-description {
+  height: 29vw;
+  border: solid 1px black;
+  margin: auto;
+  width: 78%;
+  /* padding: 10px; */
+  border-radius: 35px;
+  margin-bottom: 4rem;
+}
+
+.description-header {
+  font-size: 2vw;
+  padding-top: 2vw;
+  text-align: center;
+}
+
+.description-description {
+  padding-right: 10%;
+  font-size: 2vw;
+  padding-left: 5%;
+}
+
+.description-buttons {
+  font-size: 2vw;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.description-butt {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.footer {
+  height: 20vw;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footer-first-p {
+  font-size: 1.5vw;
+  color: white;
+}
+
+.footer-second {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer-second-p {
+  font-size: 1.2vw;
+  color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.images-buttons-footer {
+  height: 100%;
+  width: 100%;
+}
+
+.button-footer-background {
+  background: none;
+  border: none;
+}
+
+/* media  */
+
+@media only screen and (max-width: 1600px) {
+  .cover {
+    height: 87%;
+    width: 80%;
+  }
+
+  .child {
+    min-width: 24vw;
+    height: 17rem;
+    margin: 0rem 5rem;
+  }
+
+  .child-image {
+    width: 150px;
+    height: 100px;
+  }
+  .scroll-collection {
+    width: 100%;
+    height: 89%;
+  }
+  .scroll-devs {
+    width: 87%;
+    margin-left: 8%;
+  }
+  .scroll-devos {
+    width: 87%;
+    margin-left: 8%;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .scroll-devs {
+    margin-left: 7%;
+  }
+  .scroll-devos {
+    margin-left: 7%;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .scroll-devs {
+    margin-left: 5%;
+  }
+  .scroll-devos {
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 1190px) {
+  .scroll-devs {
+    margin-left: 4%;
+  }
+
+  .scroll-devos {
+    margin-left: 4%;
+  }
+  .heading-collection {
+    margin-bottom: 1rem;
+  }
+  .cover {
+    height: 87%;
+    width: 83%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .scroll-devs {
+    margin-left: 6%;
+  }
+  .scroll-devos {
+    margin-left: 6%;
+  }
+  .child {
+    min-width: 26vw;
+    height: 17rem;
+    margin: 0rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .child {
+    min-width: 26vw;
+    height: 17rem;
+    margin: 0rem 3rem;
+  }
+  .heading-collection {
+    margin-bottom: 1rem;
+  }
+  .winter-collection {
+    height: 30vw;
+
+    margin-bottom: 17vw;
+  }
+  .scroll-devs {
+    margin-left: 6%;
+  }
+  .scroll-devos {
+    margin-left: 6%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .child {
+    min-width: 26vw;
+    height: 15rem;
+    margin: 0rem 3rem;
+  }
+  .scroll-devs {
+    margin-bottom: 3%;
+  }
+  heading-collection {
+    margin-bottom: 1rem;
+  }
+  .scroll-devs {
+    margin-left: 6%;
+  }
+  .scroll-devos {
+    margin-left: 6%;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .child {
+    min-width: 28vw;
+    height: 15rem;
+    margin: 0rem 2rem;
+  }
+  .winter-collection {
+    height: 30vw;
+    margin-bottom: 20vw;
+  }
+  .parent-arrow {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 730px) {
+  .child {
+    min-width: 42vw;
+    height: 17rem;
+    margin: 0rem 7rem;
+  }
+  .winter-collection {
+    height: 30vw;
+    margin-bottom: 36vw;
+  }
+  .scroll-devos {
+    margin-left: 4%;
+  }
+  .scroll-devs {
+    margin-left: 4%;
+  }
+  .button-footer-background {
+    width: 3rem;
+    height: 2rem;
+  }
+  .parent-arrow {
+    margin-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .winter-collection {
+    height: 30vw;
+    margin-bottom: 42vw;
+  }
+
+  .child {
+    min-width: 43vw;
+    height: 17rem;
+    margin: 0rem 5rem;
+  }
+  .parent-arrow {
+    margin-top: 7rem;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .child {
+    min-width: 39vw;
+    height: 14rem;
+  }
+  .child-image-button {
+    height: 5vw;
+  }
+  .button-footer-background {
+    width: 2rem;
+    height: 1rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .child {
+    min-width: 42vw;
+    height: 15rem;
+    margin: 0rem 3.5rem;
+  }
+  .winter-collection {
+    height: 30vw;
+    margin-bottom: 59vw;
+  }
+  .scroll-devos {
+    margin-left: 9%;
+  }
+  .scroll-devs {
+    margin-left: 9%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .child {
+    min-width: 43vw;
+    height: 13rem;
+    margin: 0rem 3.5rem;
+  }
+  .scroll-devos {
+    margin-left: 5%;
+  }
+  .scroll-devs {
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .child {
+    min-width: 44vw;
+    height: 17rem;
+    margin: 0rem 2.5rem;
+  }
+  .parent-arrow {
+    margin-top: 13rem;
+  }
+
+  .winter-collection {
+    height: 30vw;
+    margin-bottom: 81vw;
+  }
+  .child-image-button {
+    height: 4vw;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .winter-collection {
+    margin-bottom: 81vw;
+  }
+
+  .child {
+    min-width: 51vw;
+    height: 14rem;
+    margin: 0rem 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 230px) {
+  .child {
+    min-width: 60vw;
+    height: 10rem;
+    margin: 0rem 0.5rem;
+  }
+  .parent-arrow {
+    margin-top: 7rem;
+  }
+}

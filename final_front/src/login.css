@@ -1,0 +1,134 @@
+
+
+
+.container-login {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem;
+}
+
+.login-leftdiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.pablo-login {
+    width: 40%;
+    align-self: center;
+}
+
+.login-form-container {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 1rem;
+    max-width: 40rem;
+    height: auto;
+    gap: 1rem;
+    box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
+}
+
+.sign-in {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin-top: 0px;
+}
+
+.signup-word {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.label-usernamepass {
+    font-size: 1.5rem;
+}
+
+.input-usernamepass {
+    font-size: 1.5rem;
+}
+
+.submit-login {
+    font-size: 1.8rem;
+}
+
+.login-rightdiv {
+    height: auto;
+    width: 100%;
+    background-image: url(../src//images/pexels-amin-imanifar-865773.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+    .container-login {
+        flex-direction: row;
+    }
+
+    .login-leftdiv {
+        width: 50%;
+        padding-top: 10rem;
+    }
+
+   /* .login-rightdiv {
+       display: none;
+   } */
+}
+
+@media (max-width: 767px) {
+    .login-rightdiv {
+            display: none;
+        }
+    .container-login {
+        padding: 1rem;
+    }
+
+    .login-leftdiv {
+        padding-top: 2rem;
+    }
+
+    .pablo-login {
+        width: 60%;
+    }
+
+    .login-form-container {
+        width: 90%;
+    }
+
+    .label-usernamepass {
+        font-size: 1.2rem;
+    }
+
+    .input-usernamepass {
+        font-size: 1.2rem;
+    }
+
+    .submit-login {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .login-leftdiv {
+        width: 70%;
+        padding-top: 6rem;
+        margin: 0 auto;
+    }
+
+    .login-form-container {
+        width: 80%;
+        max-width: 30rem;
+    }
+   .login-rightdiv{
+    display: none;
+   }
+}

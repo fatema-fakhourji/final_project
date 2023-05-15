@@ -1,0 +1,206 @@
+.ordersdash-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderPricedash {
+  display: flex;
+}
+.orderdash-style {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 2rem;
+  row-gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+.cartit {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: black;
+  border-right: 3px solid black; /* adds a 2px solid black border to the right */
+  margin-bottom: 1rem;
+}
+
+.orderdash-det {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 90%;
+  background-color: white;
+}
+
+.orderdash-img {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.orderdash-writing {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.Ordersdash-page {
+  font-size: 3rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+}
+
+.deldash{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+.delete-icondash {
+  width: 30px;
+  height: 30px;
+}
+
+.desOrderdash {
+  color: black;
+  font-size: 20px !important;
+}
+
+.orderdash-title {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: black;
+}
+
+.orderdash-writing > p {
+  font-size: 1.2rem;
+}
+
+
+/* Media queries for mobile */
+@media only screen and (max-width: 768px) {
+  .ordersdash-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .orderdash-style {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .cartit {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: black;
+    border-right: 3px solid black; /* adds a 2px solid black border to the right */
+    margin-bottom: 1rem;
+  }
+
+  .orderdash-det {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+  .orderdash-img  {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .orderdash-writing {
+    margin: 1rem;
+  }
+
+  .Ordersdash-page {
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .deldash{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+
+  .delete-icondash {
+    width: 20px;
+    height: 20px;
+  }
+
+  .orderdash-title{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .orderdash-title h2{
+    font-size: 1rem;
+  }
+  .desOrderdash {
+    color: black;
+    font-size: 1rem !important;
+  }
+  .orderdash-writing > p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  .navbar-container {
+    width: 100%;
+    background-color: #000000;
+    height: 10vh; /* using vh instead of vw for height */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* using space-between instead of space-around */
+    padding: 0 10px; /* adding some padding to the sides */
+    align-items: center;
+    column-gap: 2rem;
+  }
+  
+  .logoimg {
+    height: 100%;
+    max-width: 100%; /* setting a max-width for the logo image */
+  }
+  
+  .nav-buttons {
+    color: white;
+    font-size: 3vw; /* using vw instead of vw for font-size */
+    margin: auto 0; /* centering the text vertically */
+  }
+
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* tablet styles */
+  .navbar-container {
+    height: 60px; /* setting a fixed height */
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px; /* adding some more padding to the sides */
+  }
+
+  .logoimg {
+    max-height: 50px; /* reducing the max-height of the logo */
+    max-width: none; /* removing the max-width constraint */
+  }
+
+  .nav-buttons {
+    font-size: 1.2rem; /* using a fixed font-size */
+    margin: 0; /* removing the vertical margin */
+  }
+}

@@ -1,0 +1,237 @@
+.orders-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderPrice{
+  display: flex;
+}
+.order-style {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 2rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.order-det {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 20%;
+  background-color: black;
+}
+
+.order-img {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.order-writing {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.quantity {
+  margin-top: 2rem;
+}
+
+.Orders-page {
+  font-size: 3rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+}
+
+.del-icon {
+  width: 3rem;
+  height: 3rem;
+  padding-right: 19rem;
+}
+
+.order-total {
+  width: 50%;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.order-pay {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.order-check {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  width: 30rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.delete-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.desOrder{
+  color: white;
+  font-size: 20px!important;
+}
+
+.order-title {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color:white;
+}
+
+.order-writing > p {
+  font-size: 1.2rem;
+}
+
+.orderalldelete {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-right: 3rem;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  align-self: end;
+}
+
+
+/* Media queries for mobile */
+@media only screen and (max-width: 768px) {
+  .orders-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .order-style {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .order-det {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+  .order-img {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .order-writing {
+    margin: 1rem;
+  }
+
+  .quantity {
+    margin-top: 1rem;
+  }
+
+  .Orders-page {
+    font-size: 2rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .del-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+  }
+
+  .order-total {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .order-pay {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 20px;
+  }
+
+  .order-check {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 90%;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  .delete-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .order-title {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .order-writing > p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .orderalldelete {
+    margin-top: 2rem;
+    width: 60%;
+    height: 3rem;
+    align-self: center;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
