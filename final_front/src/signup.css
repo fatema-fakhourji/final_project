@@ -1,101 +1,102 @@
-
-
 .container-signup {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(../src//images/real-estate.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.signup-leftdiv {
-    width: 100%;
+.leftsign {
+    margin-left: 40%;
+    background-color: rgb(1, 18, 88, 0.8);
+    width: 25%;
     display: flex;
+    max-height: 100vh;
     flex-direction: column;
-    align-items: center;
-    padding-top: 4rem;
+    color: white;
 }
-
-.pablo-signup {
-    width: 40%;
-    align-self: center;
+.h444 {
+    color: white;
 }
 
 .signup-form-container {
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 1rem;
-    max-width: 40rem;
-    height: auto;
-    gap: 1rem;
-    box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
-    -webkit-box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
-    -moz-box-shadow: 0px 0px 9px 0px rgba(69, 69, 69, 0.75);
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 1rem;
+  max-width: 40rem;
+  height: auto;
+  gap: 1rem;
 }
 
 .signup-in {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-top: 0px;
 }
 
 .login-word {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .label-usernamepass-signup {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .input-usernamepass-signup {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
-
+.logooosign{
+    width: 55%;
+    height: 45%;
+    margin-left: 22%;
+   }
 .submit-signup {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
+  background-color: rgb(86, 94, 129);
+  color: white;
 }
 
-.signup-rightdiv {
-    display: none;
-}
 
 @media (min-width: 768px) {
-    .signup-leftdiv {
-        padding-top: 10rem;
-    }
+  .signup-leftdiv {
+    padding-top: 10rem;
+  }
 
-    .signup-form-container {
-        width: 80%;
-        max-width: 30rem;
-    }
+  .signup-form-container {
+    width: 80%;
+    max-width: 30rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .container-signup {
-        flex-direction: row;
-    }
+  .container-signup {
+    flex-direction: row;
+  }
 
-    .signup-leftdiv {
-        width: 50%;
-        padding-top: 10rem;
-    }
+  .signup-leftdiv {
+    width: 50%;
+    padding-top: 10rem;
+  }
 
-    .signup-form-container {
-        width: 70%;
-        max-width: 40rem;
-    }
+  .signup-form-container {
+    width: 70%;
+    max-width: 40rem;
+  }
 
-    .signup-rightdiv {
-        display: block;
-        width: 50%;
-        background-image: url(../src//images/pexels-amin-imanifar-865773.jpg);
-        background-size: cover;
-        background-position: right;
-        background-repeat: no-repeat;
-    }
+  .signup-rightdiv {
+    display: block;
+    width: 50%;
+    background-image: url(../src//images/pexels-amin-imanifar-865773.jpg);
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+  }
 }
-
