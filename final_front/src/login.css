@@ -11,12 +11,18 @@
 .h44 {
   color: white;
 }
+.h44:hover{
+  color: rgb(255, 255, 255, 0.5);
+}
+.submit-login:hover{
+  color: rgb(255, 255, 255, 0.5);
+}
 .leftog {
   margin-left: 40%;
   background-color: rgb(1, 18, 88, 0.8);
   width: 25%;
   display: flex;
-  max-height: 55vh;
+  max-height: 60vh;
   margin-top: 12%;
   flex-direction: column;
   color: white;
@@ -54,9 +60,10 @@
   font-size: 1.5rem;
 }
 .logooo{
- width: 50%;
- height: 45%;
- margin-left: 25%;
+ width: 70%;
+ height: 70%;
+ margin-left: 15%;
+ object-fit: contain;
 }
 .submit-login {
   font-size: 1.8rem;

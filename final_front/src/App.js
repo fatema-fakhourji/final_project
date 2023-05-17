@@ -10,6 +10,7 @@ import WinterDashboard from "./WinterDashboard"
 import Login from './login';
 import Signup from './signup';
 import Orderdashboard from './orderdashboard'
+import Property from './Property'
 
 function App() {
  
@@ -23,10 +24,11 @@ function App() {
         <Route path='Order' element={<Order />} />
         <Route path='/' element={<Home />} />
         <Route path='ProductsPage/:category_id' element={<ProductsPage />} />
-        <Route path='Product/:productId' element={<Product />} />
+        <Route path='Product' element={<Product />} />
         <Route path='Dashboard' element={<Dashboard />} />
         <Route path='Winter' element={<WinterDashboard />} />
         <Route path='Orderdashboard' element={<Orderdashboard />} />
+        <Route path='Property' element={<Property />} />
        
     </Routes>
     </BrowserRouter>

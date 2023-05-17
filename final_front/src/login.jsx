@@ -99,7 +99,9 @@ function Login() {
             </Link>
           </div>
         </div>
+        <Link to={'/'}>
         <img className="logooo" src={pablo} alt="" />
+        </Link>
       </div>
     </div>
   );

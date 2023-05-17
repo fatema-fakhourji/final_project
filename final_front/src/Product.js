@@ -1,180 +1,185 @@
-import './Product.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Carousel } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useParams } from 'react-router-dom';
-import logo from "../src/images/logo.png"
-import cartlogo from "../src/images/cartlogo.png"
-import facebook from "../src/images/facebook.png"
-import whatsapp from "../src/images/whatsapp.png"
-import instagram from "../src/images/instagram.png"
-import gmail from "../src/images/gmail.png"
-import { Link } from 'react-router-dom';
-import emailjs from "emailjs-com";
+import "./Order.css";
+import jacket from "./images/jacket.png";
+import del from "./images/del.png";
+import logo from "./images/logo.png";
+import cartlogo from "./images/cartlogo.png";
+import facebook from "./images/facebook.png";
+import whatsapp from "./images/whatsapp.png";
+import instagram from "./images/instagram.png";
+import gmail from "./images/gmail.png";
+import React, { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 import NavBar from "./NavBar";
-import Footer from './Footer';
+import Footer from "./Footer";
+import swal from "sweetalert";
 
-function Product() {
- 
+import { toast, ToastContainer, useToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-  
-  const [isActive, setIsActive] = useState(false);
-  const [quantity, setQuantity] = useState(1);
-  const [valueQuantity,setValueQuantity]=useState();
-  const [data, setData] = useState({});
-  const [sizes, setSizes] = useState([]);
-  const [valueSizes, setValueSizes] = useState([]);
-  const [colors, setColors] = useState([]);
-  const [valueColors, setValueColors] = useState([]);
-  const [images, setImages] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
-  const productId = useParams();
-  const [title,setTitle]=useState("");
-  const [price,setPrice]=useState();
-  // const { productId } = match.params;
-   
+function Order() {
      useEffect(() => {
     console.clear();
   }, []);
 
-// Get all size and color buttons
-const sizeButtons = document.querySelectorAll('.sizeDetailsName');
-const colorButtons = document.querySelectorAll('.colorDetailsName');
-
-// Add click event listeners to all buttons
-sizeButtons.forEach(button => button.addEventListener('click', handleButtonClick));
-colorButtons.forEach(button => button.addEventListener('click', handleButtonClick));
-
-function handleButtonClick(event) {
-  const button = event.target;
-  const buttonGroup = button.parentNode;
-
-  // Remove "selected" class from all buttons in the group
-  buttonGroup.querySelectorAll('.selected').forEach(selectedButton => {
-    selectedButton.classList.remove('selected');
-  });
-
-  // Add "selected" class to the clicked button
-  button.classList.add('selected');
-}
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const sendEmail = () => {
+    emailjs
+      .send(
+        "service_jd5xzbk",
+        "template_ydo1j6i",
+        {
+          to_email: "badranrasha685@gmail.com",
+          message:
+            "Hello, this is a static message sent from the Contact Us form.",
+        },
+        "OZH-I9C8SPG44RNKZ"
+      )
+      .then(
+        (result) => {
+          // console.log(result.text);
+        },
+        (error) => {
+          // console.log(error.text);
+        }
+      );
+  };
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems")) || []
+  );
+  const [quantity, setQuantity] = useState(1);
+  const [cartquantity, setcartQuantity] = useState();
+  const [totallPrice, setTotalPrice] = useState();
+  const [phoneNum, setPhoneNum] = useState(sessionStorage.getItem("phone"));
+  const [address, setAddress] = useState(sessionStorage.getItem("address"));
 
   
-  useEffect(() => {
-    loadSingleProduct();
-  }, [productId]);
-
-  useEffect(() => {
-    setSizes(data.size || []);
-  }, [data.size]);
-
-  useEffect(() => {
-    setColors(data.color || []);
-  }, [data.color]);
-
-  useEffect(() => {
-    setImages(data.image || []);
-  }, [data.image]);
-
-
-  const saveToLocalStorage = () => {
-  // Get the existing cart items from local storage
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-  // Check if the product is already in the cart
-  const existingCartItemIndex = cartItems.findIndex((item) => item._id === data._id);
-
-  if (existingCartItemIndex !== -1) {
-    // If the product is already in the cart, increment its quantity
-    cartItems[existingCartItemIndex].quantity += quantity;
-  } else {
-    // If the product is not in the cart, add it as a new item
-    cartItems.push({
-      _id: data._id,
-      title: data.title,
-      price: data.price,
-      priceAfterDiscount: data.priceAfterDiscount,
-      size: valueSizes,
-      color: valueColors,
-      quantity: quantity,
-    });
-
+  function deleteProductFromLocalStorage(id) {
+    const updatedProducts = cartItems.filter((product) => product._id !== id);
+    localStorage.setItem("cartItems", JSON.stringify(updatedProducts));
   }
 
-  // Save the updated cart items to local storage
-  localStorage.setItem('cartItems', JSON.stringify(cartItems));
-};
+  const [canorder, setcanorder] = useState(true);
 
-  
+  function checkUserRole() {
+    const userRole = sessionStorage.getItem("role");
+    const token = sessionStorage.getItem("token");
 
-  const loadSingleProduct = async () => {
-    try {
-      const res = await axios.get(`http://localhost:3030/product/productByID/${productId.productId}`);
-     
-      setData(res.data);
+    // Get the user's role from session storage
+    if (!token || !userRole) {
+      // User has the 'user' role, so navigate to the desired page
+
+      setcanorder(false);
+    } else {
+      setcanorder(true);
+    }
+  }
+
+  useEffect(() => {
+    checkUserRole();
+    totalcalculator();
+  }, [canorder]);
+
+  const totalcalculator = () => {
+    const cartquan = cartItems.map((item) => item.quantity);
+    const cartprice = cartItems.map((item) => item.priceAfterDiscount);
+    var total = 0;
+    const carttwo = [];
+    for (let i = 0; i < cartquan.length; i++) {
+      const item = {};
+
+      item.quantity = cartquan[i];
+      item.price = cartprice[i];
+      item.totalprice = cartquan[i] * cartprice[i];
+      carttwo.push(item);
+      total += item.totalprice;
+    }
+   
+    setTotalPrice(total);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (canorder) {
+      sendEmail();
+      const cartitemid = cartItems.map((item) => item._id);
+      const cartquan = cartItems.map((item) => item.quantity);
+      const cartsize = cartItems.map((item) => item.size);
+      const carttitle = cartItems.map((item) => item.title);
+      const cartcolor = cartItems.map((item) => item.color);
+      const cartprice = cartItems.map((item) => item.priceAfterDiscount);
+      var total = 0;
+      const cart = [];
+      for (let i = 0; i < cartquan.length; i++) {
+        const item = {};
+        item.productID = cartitemid[i];
+        item.color = cartcolor[i];
+        item.size = cartsize[i];
+        item.title = carttitle[i];
+        item.quantity = cartquan[i];
+        item.price = cartprice[i];
+        item.totalprice = cartquan[i] * cartprice[i];
+        cart.push(item);
+        total += item.totalprice;
+      }
+      
 
       
-    } catch (error) {
-      console.error(error);
+      // event.preventDefault();
+      const response = await fetch("http://localhost:3030/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cart,
+          payment_type: "Cash on Delivery",
+          total_price: total,
+          phone_number: phoneNum,
+          address: address,
+        }),
+      });
+      const data = await response.json();
+      
+      toast.success("your order is sent ", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      localStorage.clear();
+      delayedRefresh();
+    } else {
+      toast.error("please sign in to continue this order", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
+  const delayedRefresh = () => {
+    setTimeout(function () {
+      window.location.reload();
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
 
-   function handleColorClick(event) {
-   
-    setValueColors(event.target.value);
-    
+  function handleProductClick(id) {
+    swal({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      buttons: ["Cancel", "Yes, delete it!"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        deleteProductFromLocalStorage(id);
+        const updatedCartItems = cartItems.filter((item) => item._id !== id);
+        setCartItems(updatedCartItems);
+
+        swal("Poof! Your file has been deleted!", {
+          icon: "success",
+        });
+        window.location.reload();
+      } else {
+        swal("Your Order is safe!");
+      }
+    });
   }
-  
-   function handleSizeClick(event) {
-    
-    setValueSizes(event.target.value);
-    
-    
-
-  }
-
-
-  const sizeListItems = sizes.map((size) => (
-    <button
-      className="sizeDetailsName"
-      key={size.id}
-      value={size}
-      onClick={handleSizeClick}
-    >
-      {size}
-      
-      
-    </button>
-  ));
-
-  
-  const colorListItems = colors.map((color) =>
-    <button
-      className="colorDetailsName"
-      key={color.id}
-      value={color}
-      onClick={handleColorClick}
-    >
-      {color}
-    </button>
-  );
-
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -185,68 +190,108 @@ function handleButtonClick(event) {
     setQuantity(quantity + 1);
   };
 
+
+
+
+  function clearLocalStorage() {
+    swal({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      buttons: ["Cancel", "Yes, delete it!"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        localStorage.clear();
+        window.location.reload();
+        swal("Poof! Your file has been deleted!", {
+          icon: "success",
+        });
+        window.location.reload();
+      } else {
+        swal("Your Order is safe!");
+      }
+    });
+  }
+
  
 
-  return (
-    <div className="imagesProduct">
-    <NavBar/>
-      <div className='allProducts'>
-      <Carousel interval={null}>
-        {images.map((image, index) => (
-          <Carousel.Item key={index}>
-            <img
-              src={image.url}
-              imageHeight={800}
-              imageWidth={1000}
-              className="imageProductResize"
-            />
-          </Carousel.Item>
-        ))}
-      </Carousel>
-      <div className="details">
-        <p className="title">{data.title}</p>
-        <div className="price">
-        
-            {data.price == data.priceAfterDiscount  ? <h3>{data.price}$</h3> : 
-              <div className="price"> 
-                <h3>{ data.priceAfterDiscount}$</h3> 
-                <h4>{data.price}$</h4>
-              </div>
-            }
-           </div>
-        <p className="size">Size</p>
-        <p className="sizeDetails">
-          {sizeListItems}
-        </p>
-        <p className="size">Color</p>
-        <p className="colorDetails">
-        {colorListItems}
-        </p>
-      <div className="quantity-button">
-      <p className='quantityText'>Quantity</p>
-      <p className="borderr">
-      <button className="quantity-button__decrease" onClick={handleDecrease}>
-        -
-      </button>
-      <span className="quantity-button__quantity" >{quantity}</span>
-      <button className="quantity-button__increase" onClick={handleIncrease}>
-        +
-      </button>
-      </p>
-    </div>
-    <div className='description'>
-      <p className="descriptionTitle">Description</p>
-      <ul className='descriptionDetails'><li>{data.Description}</li></ul>
-    </div>
-    <div>
-     <Link to={`/Order`}> <button className='cartButton' onClick={saveToLocalStorage}> Add to cart</button></Link>
-    </div>
-    </div>
+  useEffect(() => { }, [totallPrice]);
 
+  return (
+    <>
+      <NavBar />
+      <ToastContainer />
+      <p className="Orders-page">Orders</p>
+
+      <div className="orders-div">
+        <div className="order-style">
+          {cartItems.map((item) => (
+            <div className="order-det" key={item._id}>
+              <div className="order-writing">
+                <div className="order-title desOrder">
+                  <h2>{item.title}</h2>
+                </div>
+                <p className="desOrder">Size: {item.size}</p>
+                <p className="desOrder">Color: {item.color}</p>
+                <p className="orderPrice desOrder">
+                  Price:{" "}
+                  {item.price == item.priceAfterDiscount ? (
+                    <h4 className="childPrice">{item.price}$</h4>
+                  ) : (
+                    <h4 className="childPrice,desOrder">
+                      {item.priceAfterDiscount}
+                    </h4>
+                  )}
+                </p>
+                <p className="desOrder">Quantity: {item.quantity}</p>
+
+                <div className="quantity">
+                  <img
+                    className="delete-icon"
+                    onClick={() => handleProductClick(item._id)}
+                    src={del}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="order-total">
+          <div>
+            <p>Total:</p>
+          </div>
+          <div>
+            <p>{totallPrice} $</p>
+          </div>
+        </div>
+        <div className="order-pay">
+          <div>
+            <p>Payement Method:</p>
+          </div>
+          <div>
+            <p>Cash on delivery</p>
+          </div>
+        </div>
+        <button
+          className="order-check"
+          onClick={(event) => {
+            handleSubmit(event);
+          }}
+        >
+          Place Order
+        </button>
+        <button className="orderalldelete" onClick={() => clearLocalStorage()}>
+          Delete Order
+        </button>
       </div>
-      <Footer/>
-    </div>
+
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
-export default Product;
+export default Order;

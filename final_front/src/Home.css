@@ -1,3 +1,6 @@
+body {
+  background-color: rgb(86, 94, 129);
+}
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
@@ -10,12 +13,11 @@
 
 .slideP {
   display: inline-block;
-
-  height: 400px;
+  height: 90vh;
   width: 100%;
 }
 a {
-  color: black !important;
+  color: rgb(1, 18, 88, 0.8) !important;
 }
 
 /* Buttons */
@@ -37,21 +39,23 @@ a {
 }
 
 .slideshowDot.active {
-  background-color: black;
+  background-color: rgb(1, 18, 88);
 }
 
 .navbar-container {
   width: 100%;
-  background-color: #000000;
+  background-color: rgb(1, 18, 88);
   height: 4vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  align-content: center;
 }
 
 .logoimg {
-  height: 100%;
+  width: 50%;
+  height: 45%;
 }
 
 .child {
@@ -82,11 +86,13 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-right: 15%;
 }
 
 .nav-buttons {
   color: white;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
+  margin: 0%;
 }
 
 .cartlogo {
@@ -219,8 +225,7 @@ li {
 }
 
 .pablo-description {
-  height: 29vw;
-  border: solid 1px black;
+  height: 18vw;
   margin: auto;
   width: 78%;
   /* padding: 10px; */
@@ -231,13 +236,15 @@ li {
 .description-header {
   font-size: 2vw;
   padding-top: 2vw;
-  text-align: center;
+  text-align: start;
+  color: white;
 }
 
 .description-description {
   padding-right: 10%;
-  font-size: 2vw;
+  font-size: 1.2vw;
   padding-left: 5%;
+  color: white;
 }
 
 .description-buttons {
@@ -256,45 +263,84 @@ li {
 }
 
 .footer {
-  height: 20vw;
-  background-color: black;
+  height: 15vw;
+  background-color: rgb(1, 18, 88);
   display: flex;
   flex-direction: row;
+  align-content: center;
+  align-items: center;
   justify-content: space-around;
 }
-
+.ppp {
+  margin: 0%;
+}
+.footer-first {
+  width: 41%;
+  padding-right: 20%;
+  padding-left: 5%;
+  padding-top: 1%;
+  border-right: 1px solid rgb(255, 255, 255, 0.5);
+}
 .footer-first-p {
-  font-size: 1.5vw;
+  text-align: center;
+  font-size: 1.2vw;
   color: white;
 }
-
+.rights {
+  background-color: rgb(1, 18, 88);
+  color: rgb(255, 255, 255, 0.5);
+  text-align: center;
+}
+.nav-buttons:hover {
+  color: rgb(255, 255, 255, 0.5);
+}
+.footer-second-p:hover {
+  color: rgb(255, 255, 255, 0.5);
+}
+.footer-first-p:hover {
+  color: rgb(255, 255, 255, 0.5);
+}
+.images-buttons-footer:hover {
+  color: rgb(255, 255, 255, 0.5);
+}
 .footer-second {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-self: flex-end;
 }
 
 .footer-second-p {
   font-size: 1.2vw;
   color: white;
+  text-align: center;
 }
-
+.fixx {
+  width: 25%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 .footer-links {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 60%;
-  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+  column-gap: 5%;
 }
 
 .images-buttons-footer {
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 
 .button-footer-background {
   background: none;
   border: none;
+  width: 50%;
 }
 
 /* media  */

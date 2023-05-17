@@ -142,7 +142,9 @@ function Signup() {
             </Link>
           </div>
         </div>
+        <Link to={'/'}>
         <img className="logooosign" src={pablo} alt="" />
+        </Link>
       </div>
     </div>
   );
