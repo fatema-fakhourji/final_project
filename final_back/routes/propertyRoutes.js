@@ -1,33 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../middleware/upload');
-
-const {createProduct}=require("../controllers/productControllers");
-const{getAllProducts}=require("../controllers/productControllers");
-const{getProductById}=require("../controllers/productControllers");
-const{ updateProductById}=require("../controllers/productControllers");
-const{deleteProductById}=require("../controllers/productControllers");
-const {getItemsByCategory}=require("../controllers/productControllers");
-const {getItemsByCategoryName}=require("../controllers/productControllers");
+const {
+    createProperty,
+    getAllProperties,
+    getPropertyById,
+    updatePropertyById,
+    deletePropertyById,
+    getItemsByAgent,
+  } = require("../controllers/propertiesController");
 //set product
-router.post("/product",upload.array('image'),createProduct);
+router.post("/",upload.array('image'),createProperty);
 
 //get all product
-router.get("/product",getAllProducts);
+router.get("/",getAllProperties);
 
 //getProductbyID
-router.get("/productbyID/:id",getProductById);
+router.get("/:id",getPropertyById);
 
 //getProductbyCategories
-router.get('/productbyCategory/:category_id',getItemsByCategory);
+router.get('/property/:agents_id',getItemsByAgent);
 
-//getProduct by Category name
-router.get("/productsbyCategoryName/:categoryName", getItemsByCategoryName );
 
 //updatebyID
-router.put('/productUpdate/:id', updateProductById)
+router.put('/:id', updatePropertyById)
 
 //delete
-router.delete('/deleteProduct/:id',deleteProductById)
+router.delete('/:id',deletePropertyById)
 
 module.exports=router;

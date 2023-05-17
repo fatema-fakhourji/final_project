@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const { Schema, model } = mongoose;
 const agenttable = new mongoose.Schema({
   name: {
     type: String,
@@ -28,16 +28,13 @@ const agenttable = new mongoose.Schema({
     },
   },
   agentprice: {
-    type: String,
+    type: Number,
     required: true,
   },
   properties: [
     {
-      propertyID: {
-        type: Schema.Types.ObjectId,
-        ref: "propertytable",
-        required: [true, "Please include a propertytable"],
-      },
+      type: Schema.Types.ObjectId,
+      ref: "propertytable",
     },
   ],
 });

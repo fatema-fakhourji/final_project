@@ -1,7 +1,6 @@
 const express = require("express");
-const propertyModel = require("../models/propertyModel");
 const cloudinary = require("cloudinary").v2;
-const agentModel = require("../models/agentModel");
+const propertyModel = require("../models/propertyModel");
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -9,15 +8,8 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-//calculate the new price
-function calculateDiscountedPrice(price, discountPercentage) {
-  const discountAmount = price * (discountPercentage / 100);
-  const discountedPrice = price - discountAmount;
-  return discountedPrice;
-}
-
-//create a agent
-const createAgent = async (req, res) => {
+//create a property
+const createProperty = async (req, res) => {
   try {
     let images = [];
     if (req.files && req.files.length > 0) {
@@ -31,144 +23,101 @@ const createAgent = async (req, res) => {
         });
       }
     }
-    const category = req.body.category;
-    const categorys = await Category.findById(category);
-    const discountPercentage = categorys.sale || 0;
-    const price = req.body.price;
-    const discountedPricess = calculateDiscountedPrice(
-      price,
-      discountPercentage
-    );
 
-    const agent = new propertyModel({
+    const property = new propertyModel({
       title: req.body.title,
-      price: price,
-      size: req.body.size,
-      color: req.body.color,
-      Description: req.body.Description,
+      price: req.body.price,
+      description: req.body.description,
+      approve: req.body.approve,
       image: images,
-      category: category,
-      priceAfterDiscount: discountedPricess,
+      type: req.body.type,
+      agents: req.body.agents
     });
 
-    await agent.save();
+    await property.save();
     //await discounts.updateDescription(agent._id, categorys);
-    res.status(201).send(agent);
+    res.status(201).send(property);
   } catch (error) {
     res.status(400).send(error);
   }
 };
 
-// READ all agents
+// READ all properties
 // {path: "category", select: "name"}
-const getAllAgents = async (req, res) => {
+const getAllProperties = async (req, res) => {
   try {
-    const agents = await agentModel.find().populate("category");
+    const property = await propertyModel.find();
 
-    res.send(agents);
+    res.send(property);
   } catch (error) {
     res.status(500).send(error);
   }
 };
 
 // READ a single agent by ID
-const getAgentById = async (req, res) => {
+const getPropertyById = async (req, res) => {
   try {
-    const agent = await agentModel.findById(req.params.id).populate("category");
-    if (!agent) {
+    const property = await propertyModel.findById(req.params.id);
+    if (!property) {
       return res.status(404).send();
     }
-    res.send(agent);
+    res.send(property);
   } catch (error) {
     res.status(500).send(error);
   }
 };
 
 // UPDATE a agent by ID
-const updateAgentById = async (req, res) => {
-  const updates = Object.keys(req.body);
-  const allowedUpdates = ["title", "price", "size", "color", "Description"];
-  const isValidOperation = updates.every((update) =>
-    allowedUpdates.includes(update)
-  );
-  if (!isValidOperation) {
-    return res.status(400).send({ error: "Invalid updates!" });
+const updatePropertyById = async (req, res) => {
+  const property = await propertyModel.findById(req.params.id);
+
+  if (!property) {
+    res.status(400);
+    throw new Error("Booking not found");
   }
-  try {
-    const agent = await agentModel.findById(req.params.id);
-    if (!agent) {
-      return res.status(404).send();
+  const updatedbooking = await propertyModel.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
     }
-    updates.forEach((update) => (agent[update] = req.body[update]));
-    await agent.save();
-    res.send(agent);
-  } catch (error) {
-    res.status(400).send(error);
-  }
+  );
+  res.status(200).json({ updatedbooking });
 };
 
 //get agent by category
-const getItemsByCategory = async (req, res) => {
+const getItemsByAgent = async (req, res) => {
   try {
-    const category_id = req.params.category_id;
-    const item = await agentModel.find({ category: category_id }).populate(
-      "category"
-    );
-
-    res.status(200).json(item);
-  } catch (err) {
-    res.json({ message: err });
-  }
-};
-
-//get agent by category name
-const getItemsByCategoryName = async (req, res) => {
-  try {
-    const categoryName = req.params.categoryName;
-    const items = await agentModel.aggregate([
-      {
-        $lookup: {
-          from: "categoris",
-          localField: "category",
-          foreignField: "_id",
-          as: "category",
-        },
-      },
-      {
-        $unwind: "$category",
-      },
-      {
-        $match: {
-          "category.name": categoryName,
-        },
-      },
-    ]);
+    const agent_id = req.params.agent_id;
+    const items = await propertyModel
+      .find({ agents: agent_id })
+      .populate("agents");
 
     res.status(200).json(items);
   } catch (err) {
-    res.json({ message: err });
+    res.status(500).json({ message: err });
   }
 };
 
+
 // DELETE a agent by ID
-const deleteAgentById = async (req, res) => {
+const deletePropertyById = async (req, res) => {
   try {
-    const agent = await agentModel.findByIdAndDelete(req.params.id);
-    if (!agent) {
+    const property = await propertyModel.findByIdAndDelete(req.params.id);
+    if (!property) {
       return res.status(404).send("Not found");
     }
-    res.send(agent);
+    res.send(property);
   } catch (error) {
     res.status(500).send(error);
   }
 };
 
 module.exports = {
-  createAgent,
-  getAllAgents,
-  getAgentById,
-  updateAgentById,
-  deleteAgentById,
-  getItemsByCategory,
-  getItemsByCategoryName,
+  createProperty,
+  getAllProperties,
+  getPropertyById,
+  updatePropertyById,
+  deletePropertyById,
+  getItemsByAgent,
 };

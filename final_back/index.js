@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", require("./routes/userRoutes"));
 app.use("/booking", require("./routes/bookingRoute"));
-app.use("/new", require("./routes/newRoutes"));
+app.use("/neww", require("./routes/newRoutes"));
 app.use("/property", productRoute);
 app.use("/agent", require("./routes/agentRoutes"));
 const port = process.env.PORT || 8080;

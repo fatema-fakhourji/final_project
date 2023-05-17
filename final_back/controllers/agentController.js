@@ -32,10 +32,10 @@ const getAgentByAgency = async (req, res) => {
   try {
     const agency = req.params.agency;
 
-    const filter = agency ? { agency } : {};
-    const agentcy = await agentModel.find(filter);
+    const filter = agency ? { agency: agency } : {};
+    const agents = await agentModel.find(filter);
 
-    res.status(200).json(agentcy);
+    res.status(200).json(agents);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -60,12 +60,24 @@ const setAgent = async (req, res) => {
         },
       });
 
-      return res.status(200).json({ message: "agent created successfully" });
+      // Push a new property ID to the properties array
+      // agent.properties.push({ propertyID: req.body.propertyID }); // Replace "newPropertyID" with the actual property ID
+      agent.properties.push(req.body.propertyID); // Replace "newPropertyID" with the actual property ID
+
+      // [23,56,...]
+      //[{'propertyID:52},]
+
+
+      // Save the updated agent document
+      await agent.save();
+
+      return res.status(200).json({ message: "Agent created successfully" });
     }
   } catch (err) {
-    console.log("error ", err);
+    console.log("Error: ", err);
   }
 };
+
 
 const updateAgent = async (req, res) => {
   const agent = await agentModel.findById(req.params.id);

@@ -7,12 +7,16 @@ const propertytable = mongoose.Schema(
       type: String,
       required: true,
     },
-    description: {
+    price: {
       type: Number,
       required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
     approve: {
-      type: Boolean,
+      type: Number,
       required: true,
     },
     type: {
@@ -34,13 +38,10 @@ const propertytable = mongoose.Schema(
     ],
 
     agents: [
-      {
-        agentID: {
+        {
           type: Schema.Types.ObjectId,
           ref: "agenttable",
-          required: [true, "Please include a propertytable"],
         },
-      },
     ],
   },
   {

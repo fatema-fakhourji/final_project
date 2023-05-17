@@ -12,14 +12,13 @@ const BookingModel = new Schema(
     email: {
       type: String,
       required: [true, "please add a email "],
-      unique: true,
     },
     phone: {
       type: Number,
       required: [true, "please add a phone number "],
     },
     availability: {
-      type: Number,
+      type: String,
       required: [true, "please add a phone number "],
     },
     address: {
@@ -29,4 +28,4 @@ const BookingModel = new Schema(
   },
 );
 
-module.exports = mongoose.model("bookingtable", bookingtable);
+module.exports = mongoose.model("bookingtable", BookingModel);

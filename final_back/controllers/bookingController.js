@@ -57,7 +57,6 @@ const updateBooking = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Booking not found");
   }
-  console.log(booking.cart);
   const updatedbooking = await bookingModel.findByIdAndUpdate(
     req.params.id,
     req.body,
