@@ -112,13 +112,6 @@
   font-size: 2rem;
 }
 
-.carousel-control-prev-icon:before {
-  content: "<";
-}
-
-.carousel-control-next-icon:before {
-  content: ">";
-}
 
 .imageProductResize{
   width:800px;

@@ -11,6 +11,8 @@ import Login from './login';
 import Signup from './signup';
 import Orderdashboard from './orderdashboard'
 import Property from './Property'
+import Agent from './agent'
+import Propp from './propp'
 
 function App() {
  
@@ -29,6 +31,8 @@ function App() {
         <Route path='Winter' element={<WinterDashboard />} />
         <Route path='Orderdashboard' element={<Orderdashboard />} />
         <Route path='Property' element={<Property />} />
+        <Route path='Agent/:id' element={<Agent />} />
+        <Route path='Propp/:id' element={<Propp />} />
        
     </Routes>
     </BrowserRouter>

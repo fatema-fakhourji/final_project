@@ -1,0 +1,303 @@
+.ag11-div {
+    background-image: url(../src//images/DUBAI.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+  }
+  .propPrice {
+    display: flex;
+  }
+  .ag1-style {
+    margin-top: 0%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    column-gap: 2rem;
+    row-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .ag1divi {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    column-gap: 2rem;
+    row-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(1, 18, 88, 0.5);
+  }
+  .imageAgResize {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .fullScreenImageag {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .ag1photo {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .imageAgResize {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    object-fit: contain;
+  }
+  .ag1-det {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 70%;
+  }
+  
+  .agwinter {
+    width: 90%;
+  }
+  .scroll-ag {
+    width: 25%;
+    height: 85%;
+    display: flex;
+    margin-bottom: 2%;
+    justify-content: space-between;
+  }
+  .parent-arrowag {
+    align-self: center;
+  
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .ag1-writing {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 50%;
+  }
+  .leftarrowag {
+    background: none;
+    border: 0px;
+  }
+  .coverag {
+    position: relative;
+    width: 80%;
+  }
+  .scroll-devsag {
+    width: 82%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+    margin-left: 10%;
+  }
+  .child-imageag {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .childag {
+    max-width: 90%;
+    height: 90%;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .child-image-buttonag {
+    margin-top: 4%;
+    height: 90%;
+    width: 90%;
+    background-color: rgb(86, 94, 129, 0.5);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .photoo {
+    width: 50%;
+    height: 25%;
+  }
+  .arrows-heightsag {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+  }
+  .leftarrowprop {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+  }
+  .ag1pag {
+    display: flex;
+    flex-direction: row;
+  }
+  .heading-ag {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  .ag1title {
+    font-size: 3rem;
+    font-family: var(--bs-body-font-family);
+    text-align: center;
+    margin-top: 3%;
+    color: white;
+  }
+    
+  .desag1 {
+    color: white;
+    font-size: 20px !important;
+  }
+  
+  .ag-title {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    color: white;
+  }
+  
+  
+  /* Media queries for mobile */
+  @media only screen and (max-width: 768px) {
+    .orders-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+    }
+  
+    .order-style {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .order-det {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      width: 90%;
+      margin: 1rem 0;
+    }
+  
+    .order-img {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  
+    .order-writing {
+      margin: 1rem;
+    }
+  
+    .quantity {
+      margin-top: 1rem;
+    }
+  
+    .Orders-page {
+      font-size: 2rem;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      text-align: center;
+      margin: 1rem;
+    }
+  
+    .del-icon {
+      width: 2rem;
+      height: 2rem;
+      margin-left: auto;
+    }
+  
+    .order-total {
+      width: 100%;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 20px;
+      margin-bottom: 1rem;
+    }
+  
+    .order-pay {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 20px;
+    }
+  
+    .order-check {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      width: 90%;
+      height: 3rem;
+      border-radius: 1rem;
+      background-color: black;
+      color: white;
+      font-size: 1.5rem;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    }
+  
+    .delete-icon {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .order-title {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    .order-writing > p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+  
+    .orderalldelete {
+      margin-top: 2rem;
+      width: 60%;
+      height: 3rem;
+      align-self: center;
+      border-radius: 1rem;
+      background-color: black;
+      color: white;
+      font-size: 1rem;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
+  

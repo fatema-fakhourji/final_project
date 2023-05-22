@@ -1,61 +1,182 @@
-.orders-div {
+.ag-div {
+  background-image: url(../src//images/agents.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 0%;
 }
-
-.orderPrice{
+.propPrice {
   display: flex;
 }
-.order-style {
+.ag-style {
+  margin-top: 0%;
   width: 90%;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   column-gap: 2rem;
-  justify-content: flex-start;
+  row-gap: 4rem;
+  justify-content: center;
   align-items: center;
 }
-
-.order-det {
+.agdivi {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  column-gap: 2rem;
+  row-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(1, 18, 88, 0.5);
+}
+.imageAgResize {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.fullScreenImageag {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.agphoto {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.imageAgResize {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-height: 20rem;
+  object-fit: contain;
+}
+.ag-det {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.agwinter {
+  width: 90%;
+}
+.scroll-ag {
+  width: 25%;
+  height: 85%;
+  display: flex;
+  margin-bottom: 2%;
+  justify-content: space-between;
+}
+.parent-arrowag {
+  align-self: center;
+
   width: 20%;
-  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-
-.order-img {
-  margin-top: 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
-.order-writing {
+.ag-writing {
   margin-left: 2rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
+  width: 50%;
 }
-
-.quantity {
-  margin-top: 2rem;
+.leftarrowag {
+  background: none;
+  border: 0px;
 }
-
-.Orders-page {
-  font-size: 3rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+.coverag {
+  position: relative;
+  width: 80%;
+}
+.scroll-devsag {
+  width: 82%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  margin-left: 10%;
+}
+.child-imageag {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.childag {
+  max-width: 90%;
+  height: 90%;
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.child-image-buttonag {
+  margin-top: 4%;
+  height: 90%;
+  width: 90%;
+  background-color: rgb(86, 94, 129, 0.5);
+  color: white;
+  border-radius: 5px;
   text-align: center;
 }
-
-.del-icon {
-  width: 3rem;
-  height: 3rem;
-  padding-right: 19rem;
+.photoo {
+  width: 50%;
+  height: 25%;
+}
+.arrows-heightsag {
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
+}
+.leftarrowprop {
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
+}
+.proppag {
+  display: flex;
+  flex-direction: row;
+}
+.heading-ag {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}
+.agtitle {
+  font-size: 3rem;
+  font-family: var(--bs-body-font-family);
+  text-align: center;
+  margin-top: 3%;
+  color: white;
 }
 
-.order-total {
+
+.prop-total {
   width: 50%;
   margin-top: 4rem;
   display: flex;
@@ -65,59 +186,15 @@
   font-size: 25px;
 }
 
-.order-pay {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 25px;
-}
-
-.order-check {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-  width: 30rem;
-  height: 3rem;
-  border-radius: 1rem;
-  background-color: black;
+.desag {
   color: white;
-  font-size: 2rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px !important;
 }
 
-.delete-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.desOrder{
-  color: white;
-  font-size: 20px!important;
-}
-
-.order-title {
+.ag-title {
   margin-bottom: 2rem;
   margin-top: 2rem;
-  color:white;
-}
-
-.order-writing > p {
-  font-size: 1.2rem;
-}
-
-.orderalldelete {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-  margin-right: 3rem;
-  width: 15rem;
-  height: 3rem;
-  border-radius: 1rem;
-  background-color: black;
   color: white;
-  font-size: 1.5rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  align-self: end;
 }
 
 
