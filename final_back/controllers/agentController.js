@@ -10,7 +10,7 @@ cloudinary.config({
 
 // get all agent
 const getAgents = async (req, res) => {
-  const agent = await agentModel.find();
+  const agent = await agentModel.find().populate("properties");;
 
   res.status(200).json(agent);
 };

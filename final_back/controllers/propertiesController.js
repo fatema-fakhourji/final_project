@@ -46,7 +46,7 @@ const createProperty = async (req, res) => {
 // {path: "category", select: "name"}
 const getAllProperties = async (req, res) => {
   try {
-    const property = await propertyModel.find();
+    const property = await propertyModel.find().populate("agents");
 
     res.send(property);
   } catch (error) {
