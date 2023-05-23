@@ -9,7 +9,7 @@ import swal from "sweetalert";
 import { ToastContainer } from "react-toastify";
 import { useParams } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
-import "./agent.css";
+import "./propp.css";
 import rightarrow from "../src/images/right.png";
 import leftarrow from "../src/images/left.png";
 import Arrow from "../src/images/Arrow.png";

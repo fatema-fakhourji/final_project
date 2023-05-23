@@ -9,7 +9,7 @@ import swal from "sweetalert";
 import { ToastContainer } from "react-toastify";
 import { useParams } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
-import "./propp.css";
+import "./agent.css";
 import rightarrow from "../src/images/right.png";
 import leftarrow from "../src/images/left.png";
 import Arrow from "../src/images/Arrow.png";
@@ -25,7 +25,9 @@ function Prop() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`http://localhost:3030/agent/${agentID.id}`);
+        const response = await axios.get(
+          `http://localhost:3030/agent/${agentID.id}`
+        );
         setData(response.data);
       } catch (error) {
         console.log(error);
@@ -89,6 +91,11 @@ function Prop() {
                     <p className="desag">Email: {data.email}</p>
                     <p className="desag">Phone: {data.phone}</p>
                     <p className="desag">Agency: {data.agency}</p>
+                    <a href={`https://wa.me/${data.phone}`}>
+                      <button type="button" className="buttonag">
+                        Message the agent by Whatsapp
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>

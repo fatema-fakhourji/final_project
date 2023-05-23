@@ -15,6 +15,7 @@ body {
   display: inline-block;
   height: 90vh;
   width: 100%;
+  object-fit: cover;
 }
 a {
   color: rgb(1, 18, 88, 0.8) !important;
@@ -37,15 +38,14 @@ a {
 
   background-color: #c4c4c4;
 }
-
-.slideshowDot.active {
-  background-color: rgb(1, 18, 88);
+.diviv{
+  height: 6vh;
 }
-
 .navbar-container {
   width: 100%;
   background-color: rgb(1, 18, 88);
-  height: 4vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -54,39 +54,15 @@ a {
 }
 
 .logoimg {
-  width: 50%;
-  height: 45%;
+  height: 100%;
+  object-fit: cover;
 }
-
-.child {
-  position: relative;
-}
-
-.discount {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background-color: black;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-size: 25px;
-}
-.last-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1vw;
-}
-
 .navigation-buttons {
   width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-right: 15%;
 }
 
 .nav-buttons {
@@ -94,147 +70,20 @@ a {
   font-size: 1.2vw;
   margin: 0%;
 }
-
-.cartlogo {
-  height: 70%;
-  width: 3vw;
+.slideshowDot.active {
+  background-color: rgb(1, 18, 88);
 }
-
-ul {
-  display: flex;
-  list-style: none;
-  padding-left: 0px;
-  transition: all 1s ease;
-  height: 100%;
-  margin-top: 0px;
-}
-
-.slideshow-container {
-  width: 100%;
-  height: 40vw;
-  overflow: hidden;
-  border-radius: 3px;
-  padding-top: 0px;
-}
-
-.imgg {
-  width: 100vw;
-  height: 100%;
-}
-
-li {
-  width: 100%;
-}
-
-.winter-collection {
-  height: 30vw;
-
-  margin-bottom: 2vw;
-}
-
-.scroll-collection {
-  width: 100%;
-  height: 85%;
-  display: flex;
-
-  justify-content: space-between;
-}
-
-.cover {
-  position: relative;
-  width: 80%;
-}
-
-.scroll-devs {
-  width: 82%;
-  height: auto;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  scroll-behavior: smooth;
-  margin-left: 10%;
-}
-
-.scroll-devos {
-  width: 82%;
-  height: auto;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  scroll-behavior: smooth;
-  margin-left: 10%;
-}
-
-.child {
-  min-width: 19vw;
-  height: 431px;
-  margin: 8px 22px;
-  cursor: pointer;
-  border: 2px solid grey;
-  border-radius: 35px;
-  overflow: hidden;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.child-image {
-  width: 290px;
-  height: 285px;
-}
-
-.leftarrow {
-  background: none;
-  border: 0px;
-}
-
-.arrows-heights {
-  height: 100%;
-  width: 3.5vw;
-}
-
-.parent-arrow {
-  align-self: center;
-
-  width: 20%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.child-image-button {
-  height: 3vw;
-  width: 80%;
-  background-color: #000000;
-  color: white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.heading-collection {
-  font-size: 3vw;
-  text-align: center;
-}
-
 .pablo-description {
   height: 18vw;
   margin: auto;
   width: 78%;
   /* padding: 10px; */
   border-radius: 35px;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
 }
 
 .description-header {
-  font-size: 2vw;
+  font-size: 2.5vw;
   padding-top: 2vw;
   text-align: start;
   color: white;
@@ -242,28 +91,13 @@ li {
 
 .description-description {
   padding-right: 10%;
-  font-size: 1.2vw;
+  font-size: 2vw;
   padding-left: 5%;
   color: white;
 }
 
-.description-buttons {
-  font-size: 2vw;
-  background: none;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-}
-
-.description-butt {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
 .footer {
-  height: 15vw;
+  height: 25vw;
   background-color: rgb(1, 18, 88);
   display: flex;
   flex-direction: row;
@@ -283,7 +117,7 @@ li {
 }
 .footer-first-p {
   text-align: center;
-  font-size: 1.2vw;
+  font-size: 2vw;
   color: white;
 }
 .rights {
@@ -311,7 +145,7 @@ li {
 }
 
 .footer-second-p {
-  font-size: 1.2vw;
+  font-size: 2vw;
   color: white;
   text-align: center;
 }
@@ -325,7 +159,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 50%;
+  width: 70%;
   align-items: center;
   align-content: center;
   column-gap: 5%;
@@ -343,266 +177,117 @@ li {
   width: 50%;
 }
 
-/* media  */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    height: 6vw;
+  }
 
-@media only screen and (max-width: 1600px) {
-  .cover {
-    height: 87%;
+  .logoimg {
+    width: 70%;
+    height: auto;
+  }
+  .slideP {
+    height: 50vh;
+  }
+  .footer {
+    height: 20vw;
+  }
+ 
+  .ppp {
+    font-size: 2.5vw;
+    padding-top: 3%;
+    background-color: rgb(1, 18, 88);
+  }
+  .fixx {
+    width: 40%;
+  }
+
+  .pablo-description {
+    height: auto;
+    width: 90%;
+  }
+  .slideshowDot {
+    height: 10px;
+    width: 10px;
+  }
+  .description-header {
+    font-size: 4vw;
+    padding-top: 1vw;
+  }
+
+  .description-description {
+    font-size: 3.5vw;
+  }
+  .footer-first {
+    width: 45%;
+    padding-right: 10%;
+    padding-left: 5%;
+    margin-top: 3%;
+  }
+
+  .footer-first-p {
+    font-size: 2.5vw;
+  }
+
+  .footer-links {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .navbar-container {
+    height: 8vw;
+  }
+
+  .logoimg {
     width: 80%;
   }
 
-  .child {
-    min-width: 24vw;
-    height: 17rem;
-    margin: 0rem 5rem;
+
+  .pablo-description {
+    height: auto;
+    width: 95%;
+    margin-bottom: 2rem;
   }
 
-  .child-image {
-    width: 150px;
-    height: 100px;
+  .description-header {
+    font-size: 4vw;
+    padding-top: 0.5vw;
+    text-align: center;
   }
-  .scroll-collection {
+
+  .description-description {
+    font-size: 3.5vw;
+    padding-right: 5%;
+    padding-left: 5%;
+    text-align: center;
+  }
+  .footer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .footer-first {
     width: 100%;
-    height: 89%;
-  }
-  .scroll-devs {
-    width: 87%;
-    margin-left: 8%;
-  }
-  .scroll-devos {
-    width: 87%;
-    margin-left: 8%;
-  }
-}
-
-@media only screen and (max-width: 1500px) {
-  .scroll-devs {
-    margin-left: 7%;
-  }
-  .scroll-devos {
-    margin-left: 7%;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .scroll-devs {
-    margin-left: 5%;
-  }
-  .scroll-devos {
-    margin-left: 5%;
-  }
-}
-
-@media only screen and (max-width: 1190px) {
-  .scroll-devs {
-    margin-left: 4%;
+    padding-right: 0;
+    padding-left: 0;
+    border-right: none;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.5);
   }
 
-  .scroll-devos {
-    margin-left: 4%;
-  }
-  .heading-collection {
-    margin-bottom: 1rem;
-  }
-  .cover {
-    height: 87%;
-    width: 83%;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  .scroll-devs {
-    margin-left: 6%;
-  }
-  .scroll-devos {
-    margin-left: 6%;
-  }
-  .child {
-    min-width: 26vw;
-    height: 17rem;
-    margin: 0rem 3rem;
-  }
-}
-
-@media only screen and (max-width: 1020px) {
-  .child {
-    min-width: 26vw;
-    height: 17rem;
-    margin: 0rem 3rem;
-  }
-  .heading-collection {
-    margin-bottom: 1rem;
-  }
-  .winter-collection {
-    height: 30vw;
-
-    margin-bottom: 17vw;
-  }
-  .scroll-devs {
-    margin-left: 6%;
-  }
-  .scroll-devos {
-    margin-left: 6%;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .child {
-    min-width: 26vw;
-    height: 15rem;
-    margin: 0rem 3rem;
-  }
-  .scroll-devs {
-    margin-bottom: 3%;
-  }
-  heading-collection {
-    margin-bottom: 1rem;
-  }
-  .scroll-devs {
-    margin-left: 6%;
-  }
-  .scroll-devos {
-    margin-left: 6%;
-  }
-}
-
-@media only screen and (max-width: 830px) {
-  .child {
-    min-width: 28vw;
-    height: 15rem;
-    margin: 0rem 2rem;
-  }
-  .winter-collection {
-    height: 30vw;
-    margin-bottom: 20vw;
-  }
-  .parent-arrow {
-    margin-top: 2rem;
-  }
-}
-@media only screen and (max-width: 730px) {
-  .child {
-    min-width: 42vw;
-    height: 17rem;
-    margin: 0rem 7rem;
-  }
-  .winter-collection {
-    height: 30vw;
-    margin-bottom: 36vw;
-  }
-  .scroll-devos {
-    margin-left: 4%;
-  }
-  .scroll-devs {
-    margin-left: 4%;
-  }
-  .button-footer-background {
-    width: 3rem;
-    height: 2rem;
-  }
-  .parent-arrow {
-    margin-top: 5rem;
-  }
-}
-
-@media only screen and (max-width: 630px) {
-  .winter-collection {
-    height: 30vw;
-    margin-bottom: 42vw;
+  .footer-first-p {
+    font-size: 4vw;
   }
 
-  .child {
-    min-width: 43vw;
-    height: 17rem;
-    margin: 0rem 5rem;
-  }
-  .parent-arrow {
-    margin-top: 7rem;
-  }
-}
-
-@media only screen and (max-width: 520px) {
-  .child {
-    min-width: 39vw;
-    height: 14rem;
-  }
-  .child-image-button {
-    height: 5vw;
-  }
-  .button-footer-background {
-    width: 2rem;
-    height: 1rem;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .child {
-    min-width: 42vw;
-    height: 15rem;
-    margin: 0rem 3.5rem;
-  }
-  .winter-collection {
-    height: 30vw;
-    margin-bottom: 59vw;
-  }
-  .scroll-devos {
-    margin-left: 9%;
-  }
-  .scroll-devs {
-    margin-left: 9%;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .child {
-    min-width: 43vw;
-    height: 13rem;
-    margin: 0rem 3.5rem;
-  }
-  .scroll-devos {
-    margin-left: 5%;
-  }
-  .scroll-devs {
-    margin-left: 5%;
-  }
-}
-
-@media only screen and (max-width: 350px) {
-  .child {
-    min-width: 44vw;
-    height: 17rem;
-    margin: 0rem 2.5rem;
-  }
-  .parent-arrow {
-    margin-top: 13rem;
+  .fixx {
+    width: 60%;
   }
 
-  .winter-collection {
-    height: 30vw;
-    margin-bottom: 81vw;
+  .footer-links {
+    width: 100%;
   }
-  .child-image-button {
-    height: 4vw;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .winter-collection {
-    margin-bottom: 81vw;
-  }
-
-  .child {
-    min-width: 51vw;
-    height: 14rem;
-    margin: 0rem 1.5rem;
-  }
-}
-
-@media only screen and (max-width: 230px) {
-  .child {
-    min-width: 60vw;
-    height: 10rem;
-    margin: 0rem 0.5rem;
-  }
-  .parent-arrow {
-    margin-top: 7rem;
+  .footer-second-p {
+    font-size: 4vw;
+    padding-top: 3%;
+  
   }
 }

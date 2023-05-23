@@ -185,22 +185,4 @@
   }
 
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* tablet styles */
-  .navbar-container {
-    height: 60px; /* setting a fixed height */
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 20px; /* adding some more padding to the sides */
-  }
 
-  .logoimg {
-    max-height: 50px; /* reducing the max-height of the logo */
-    max-width: none; /* removing the max-width constraint */
-  }
-
-  .nav-buttons {
-    font-size: 1.2rem; /* using a fixed font-size */
-    margin: 0; /* removing the vertical margin */
-  }
-}

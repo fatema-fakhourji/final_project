@@ -13,7 +13,7 @@
   display: flex;
 }
 .ag-style {
-  margin-top: 0%;
+  margin: auto;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,6 @@
 }
 .parent-arrowag {
   align-self: center;
-
   width: 20%;
   display: flex;
   flex-direction: row;
@@ -175,7 +174,6 @@
   color: white;
 }
 
-
 .prop-total {
   width: 50%;
   margin-top: 4rem;
@@ -196,119 +194,145 @@
   margin-top: 2rem;
   color: white;
 }
-
-
-/* Media queries for mobile */
-@media only screen and (max-width: 768px) {
-  .orders-div {
-    display: flex;
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px */
+  .ag-style {
     flex-direction: column;
-    align-items: center;
-    padding: 0 1rem;
+    row-gap: 2rem;
+  }
+  .scroll-ag {
+    width: 50%;
   }
 
-  .order-style {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  .parent-arrowag {
+    width: 30%;
+  }
+  .agdivi {
+    flex-direction: column;
+    row-gap: 2rem;
   }
 
-  .order-det {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+  .agphoto {
+    width: 70%;
+  }
+
+  .ag-det {
     width: 90%;
-    margin: 1rem 0;
   }
 
-  .order-img {
-    margin-top: 1rem;
+  .ag-writing {
     width: 100%;
   }
 
-  .order-writing {
-    margin: 1rem;
+  .scroll-devsag {
+    width: 100%;
+    margin-left: 0;
+  }
+  .child-image-buttonag {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
-  .quantity {
-    margin-top: 1rem;
+  .photoo {
+    width: 80%;
+    height: auto;
   }
 
-  .Orders-page {
+  .proppag {
+    flex-direction: column;
+  }
+
+  .agtitle {
     font-size: 2rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    text-align: center;
-    margin: 1rem;
+    margin-top: 2%;
   }
 
-  .del-icon {
-    width: 2rem;
-    height: 2rem;
-    margin-left: auto;
+  .prop-total {
+    width: 80%;
   }
 
-  .order-total {
-    width: 100%;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 20px;
-    margin-bottom: 1rem;
+  .desag {
+    font-size: 16px !important;
   }
 
-  .order-pay {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 20px;
-  }
-
-  .order-check {
+  .ag-title {
     margin-bottom: 1rem;
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Styles for screens up to 576px */
+  .ag-style {
+    width: 100%;
+  }
+
+  .agdivi {
     width: 90%;
-    height: 3rem;
-    border-radius: 1rem;
-    background-color: black;
-    color: white;
-    font-size: 1.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
-  .delete-icon {
-    width: 20px;
-    height: 20px;
+  .agphoto {
+    margin-top: 5%;
+    width: 100%;
   }
 
-  .order-title {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
+  .ag-det {
+    width: 100%;
   }
 
-  .order-writing > p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
+  .ag-writing {
+    margin-top: 5%;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
-  .orderalldelete {
-    margin-top: 2rem;
-    width: 60%;
-    height: 3rem;
-    align-self: center;
-    border-radius: 1rem;
-    background-color: black;
-    color: white;
-    font-size: 1rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  .scroll-devsag {
+    width: 100%;
+    margin-left: 0;
+  }
+  .child-image-buttonag {
+    width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+  }
+
+  .photoo {
+    width: 90%;
+    height: auto;
+  }
+
+  .proppag {
+    flex-direction: column;
+  }
+
+  .agtitle {
+    font-size: 1.5rem;
+    margin-top: 1.5%;
+  }
+
+  .prop-total {
+    width: 90%;
+  }
+
+  .desag {
+    font-size: 14px !important;
+  }
+
+  .ag-title {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .scroll-ag {
+    width: 90%;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+  }
+
+  .parent-arrowag {
+    width: 30%;
+    margin-top: 1rem;
   }
 }

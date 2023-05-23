@@ -1,11 +1,10 @@
-import "./Product.css";
+import "./Home.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 import logo from "../src/images/logoo.png";
-import cartlogo from "../src/images/cartlogo.png";
 import facebook from "../src/images/facebook.png";
 import whatsapp from "../src/images/whatsapp.png";
 import instagram from "../src/images/instagram.png";
@@ -35,7 +34,7 @@ function NavBar() {
 
   return (
     <div className="navbar-container">
-      <div>
+      <div className="diviv">
         <Link to={'/'}>
         <img className="logoimg" src={logo} alt="" srcset="" />
         </Link>

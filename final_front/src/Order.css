@@ -1,237 +1,103 @@
-.orders-div {
+.containers {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 5%;
+}
+
+.containers::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../src/images/wall.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.submitlogin:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.leftogg {
+  margin: auto;
+  background-color: rgba(1, 18, 88, 0.8);
+  width: 80%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
   justify-content: center;
-  align-items: center;
 }
 
-.orderPrice{
-  display: flex;
-}
-.order-style {
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  column-gap: 2rem;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.order-det {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  width: 20%;
-  background-color: black;
-}
-
-.order-img {
-  margin-top: 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-}
-
-.order-writing {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-}
-
-.quantity {
-  margin-top: 2rem;
-}
-
-.Orders-page {
-  font-size: 3rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+.signin {
+  width: 100%;
   text-align: center;
 }
 
-.del-icon {
-  width: 3rem;
-  height: 3rem;
-  padding-right: 19rem;
-}
-
-.order-total {
-  width: 50%;
-  margin-top: 4rem;
+.formcontainer {
+  align-self: center;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 25px;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  height: auto;
+  gap: 1rem;
 }
 
-.order-pay {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 25px;
-}
-
-.order-check {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-  width: 30rem;
-  height: 3rem;
-  border-radius: 1rem;
-  background-color: black;
+.proptitlee {
+  font-size: 3rem;
+  font-family: var(--bs-body-font-family);
+  text-align: center;
   color: white;
-  font-size: 2rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-bottom: 2%;
 }
 
-.delete-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.desOrder{
-  color: white;
-  font-size: 20px!important;
-}
-
-.order-title {
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  color:white;
-}
-
-.order-writing > p {
-  font-size: 1.2rem;
-}
-
-.orderalldelete {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-  margin-right: 3rem;
-  width: 15rem;
-  height: 3rem;
-  border-radius: 1rem;
-  background-color: black;
-  color: white;
+.usernamepass {
   font-size: 1.5rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  align-self: end;
 }
 
+.inputusernamepass {
+  font-size: 1.5rem;
+}
 
-/* Media queries for mobile */
-@media only screen and (max-width: 768px) {
-  .orders-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1rem;
-  }
+.submitlogin {
+  margin-top: 5%;
+  font-size: 1.8rem;
+  background-color: rgb(86, 94, 129);
+  color: white;
+  margin-bottom: 5%;
+}
 
-  .order-style {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+/* Responsive Adjustments */
 
-  .order-det {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+@media (max-width: 768px) {
+  .leftogg {
     width: 90%;
-    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .formcontainer {
+    width: 90%;
   }
 
-  .order-img {
-    margin-top: 1rem;
-    width: 100%;
-  }
-
-  .order-writing {
-    margin: 1rem;
-  }
-
-  .quantity {
-    margin-top: 1rem;
-  }
-
-  .Orders-page {
+  .proptitlee {
     font-size: 2rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    text-align: center;
-    margin: 1rem;
   }
 
-  .del-icon {
-    width: 2rem;
-    height: 2rem;
-    margin-left: auto;
-  }
-
-  .order-total {
-    width: 100%;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 20px;
-    margin-bottom: 1rem;
-  }
-
-  .order-pay {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 20px;
-  }
-
-  .order-check {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    width: 90%;
-    height: 3rem;
-    border-radius: 1rem;
-    background-color: black;
-    color: white;
-    font-size: 1.5rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  }
-
-  .delete-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .order-title {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .order-writing > p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
-
-  .orderalldelete {
-    margin-top: 2rem;
-    width: 60%;
-    height: 3rem;
-    align-self: center;
-    border-radius: 1rem;
-    background-color: black;
-    color: white;
-    font-size: 1rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    margin-left: 5%;
-    margin-right: 5%;
+  .usernamepass,
+  .inputusernamepass,
+  .submitlogin {
+    font-size: 1.2rem;
   }
 }
+
+

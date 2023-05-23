@@ -1,13 +1,11 @@
 import "./Home.css";
 import logo from "../src/images/logo.png";
-import cartlogo from "../src/images/cartlogo.png";
 import slider1 from "../src/images/slider1.jpeg";
 import slider2 from "../src/images/dubai.jpg";
 import slider3 from "../src/images/pxfuel.jpg";
 import slider4 from "../src/images/Quartier-financier-Dubai.jpg";
 import jacket from "../src/images/jacket.png";
 import rightarrow from "../src/images/arrowright.png";
-import leftarrow from "../src/images/arrowleft.png";
 import facebook from "../src/images/facebook.png";
 import whatsapp from "../src/images/whatsapp.png";
 import instagram from "../src/images/instagram.png";
@@ -64,27 +62,6 @@ function App() {
       resetTimeout();
     };
   }, [index]);
-
-  const scroll = () => {
-    var left = document.querySelector(".scroll-devs");
-    left.scrollBy(280, 0);
-  };
-
-  const scrollr = () => {
-    var right = document.querySelector(".scroll-devs");
-    right.scrollBy(-380, 0);
-  };
-
-  const scrollsec = () => {
-    var left = document.querySelector(".scroll-devos");
-    left.scrollBy(380, 0);
-  };
-
-  const scrollrsec = () => {
-    var right = document.querySelector(".scroll-devos");
-    right.scrollBy(-380, 0);
-  };
-
   return (
     <div className="App">
       <NavBar />
