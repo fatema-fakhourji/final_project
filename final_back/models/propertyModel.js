@@ -17,7 +17,6 @@ const propertytable = mongoose.Schema(
     },
     approve: {
       type: Number,
-      required: true,
     },
     type: {
       type: String,
