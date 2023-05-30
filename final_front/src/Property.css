@@ -210,7 +210,7 @@
   }
 
   .prophoto {
-    width: 70%;
+    width: 100%;
   }
 
   .prop-det {
@@ -229,6 +229,7 @@
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    font-size: 20px;
   }
 
   .photoo {
@@ -250,12 +251,15 @@
   }
 
   .desprop {
-    font-size: 16px !important;
+    font-size: 30px !important;
   }
 
   .prop-title {
     margin-bottom: 1rem;
     margin-top: 1rem;
+  }
+  .heading-prop {
+    font-size: 35px;
   }
 }
 

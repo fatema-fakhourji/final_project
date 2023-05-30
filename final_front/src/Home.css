@@ -1,6 +1,7 @@
 body {
   background-color: rgb(86, 94, 129, 0.8);
 }
+
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
@@ -38,7 +39,7 @@ a {
 
   background-color: #c4c4c4;
 }
-.diviv{
+.diviv {
   height: 6vh;
 }
 .navbar-container {
@@ -51,6 +52,8 @@ a {
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  position: relative;
+  z-index: 5;
 }
 
 .logoimg {
@@ -58,10 +61,11 @@ a {
   object-fit: cover;
 }
 .navigation-buttons {
-  width: 30%;
+  width: 70%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 8%;
+  justify-content: center;
   align-items: center;
 }
 
@@ -177,14 +181,19 @@ a {
   width: 50%;
 }
 
+.burger_menu {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .navbar-container {
-    height: 6vw;
+    height: 15vw;
+    gap: 35%;
   }
 
   .logoimg {
-    width: 70%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .slideP {
     height: 50vh;
@@ -192,7 +201,7 @@ a {
   .footer {
     height: 20vw;
   }
- 
+
   .ppp {
     font-size: 2.5vw;
     padding-top: 3%;
@@ -232,16 +241,57 @@ a {
   .footer-links {
     width: 70%;
   }
+
+  .navigation-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background-color: rgb(1, 18, 88);
+    transition: 0.7s al ease;
+  }
+  .navigation-buttons.visible {
+    position: absolute;
+    transition: 0.7s all ease;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    /*hellooo*/
+  }
+  .nav-buttons {
+    font-size: 4vw;
+   
+  }
+  .navigation-buttons.hidden {
+    transition: 0.7s all ease;
+    position: absolute;
+    top: -100vh;
+    z-index: -10;
+  }
+
+  .burger_menu {
+    display: block;
+    color: white;
+    margin-right: 2%;
+  }
+
+  .burger_menu i {
+    width: 120px;
+    height: 120px;
+    color: white;
+  }
 }
 @media screen and (max-width: 576px) {
   .navbar-container {
-    height: 8vw;
+    height: 15vw;
   }
 
   .logoimg {
     width: 80%;
+    object-fit: contain;
   }
-
 
   .pablo-description {
     height: auto;
@@ -288,6 +338,5 @@ a {
   .footer-second-p {
     font-size: 4vw;
     padding-top: 3%;
-  
   }
 }

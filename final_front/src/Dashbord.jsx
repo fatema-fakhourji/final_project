@@ -1,54 +1,53 @@
 import "./dashbord.css";
-import logo from "../src/images/logo.png";
-import trashcan from "../src/images/trashcan.png";
+import logo from "../src/images/logoo.png";
+import trashcan from "../src/images/bin.svg";
+import pen from "../src/images/pencil.svg";
 import editbutton from "../src/images/editbutton.png";
 import Addbutton from "../src/images/Addbutton.png";
 import { useState } from "react";
 import Collapsible from "react-collapsible";
+import { Carousel, Modal } from "react-bootstrap";
 import axios from "axios";
+import rightarrow from "../src/images/right.png";
+import leftarrow from "../src/images/left.png";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom"
-import { Link } from 'react-router-dom';
-import { toast, ToastContainer, useToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer, useToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Dashboard() {
-  const [category_id, setcategory_id] = useState(null);
-  const [categories, setcategories] = useState(null);
-  const [Products, setProducts] = useState(null);
-  const [catname, setCatname] = useState("");
-  const [season, setSeason] = useState("summer");
-  const [sale, setSale] = useState(0);
-  const [image, setImage] = useState("");
+  const [property_id, setproperty_id] = useState(null);
+  const [properties, setproperties] = useState(null);
+  const [propname, setPropname] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setdescription] = useState("");
+  const [type, setType] = useState("");
+  const [edit, setImage] = useState("");
+  const [agents, setAgents] = useState([]);
+  const [selectedAgent, setSelectedAgent] = useState("");
+  const [selectededitAgent, setSelectededitAgent] = useState(""); // Add selectedAgent state
 
-  const [Newcatname, setNewcatname] = useState("");
   const [Newseason, setNewseason] = useState("summer");
-  const [Newimage, setNewimage] = useState("");
   const [Newsale, setNewsale] = useState(0);
 
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
+  // const [price, setPrice] = useState("");
 
+  const [Products_id, setProducts_id] = useState(null);
 
-  const [Products_id, setProducts_id] = useState(null)
-
-  const [edittitle, setedittitle] = useState('')
-  const [editprice, seteditPrice] = useState('')
-  const [size, setsize] = useState([])
-  const [sizeedit, setsizeedit] = useState([])
-  const [editcolor, seteditColor] = useState([])
-  const [editDescription, seteditDescription] = useState('')
-  const [color, setColor] = useState([])
-  const [Description, setDescription] = useState('')
-  const [pimage, setPimage] = useState('')
+  const [edittitle, setedittitle] = useState("");
+  const [editprice, seteditPrice] = useState("");
+  const [editDescription, seteditDescription] = useState("");
+  const [color, setColor] = useState([]);
+  const [Description, setDescription] = useState("");
+  const [editType, seteditType] = useState("");
+  const [pimage, setPimage] = useState("");
   const [threeimages, setthreeimages] = useState([]);
 
+  const [productsdata, setproductsdata] = useState();
 
-  const [productsdata, setproductsdata] = useState()
-
-
-  const [cat_id, setcat_id] = useState(null)
-
+  const [cat_id, setcat_id] = useState(null);
 
   const navigate = useNavigate();
 
@@ -57,27 +56,18 @@ function Dashboard() {
   }, []);
 
   function checkUserRole() {
-    const userRole = sessionStorage.getItem('role');
-    const token = sessionStorage.getItem('token');
-
+    const userRole = sessionStorage.getItem("role");
+    const token = sessionStorage.getItem("token");
 
     // Get the user's role from session storage
-    if (!token || userRole === 'user') {
+    if (!token || userRole === "user") {
       // User has the 'user' role, so navigate to the desired page
 
       navigate("/Login", { replace: true });
     }
   }
 
-
-
-
-
-
   // make the session clearrrrrr
-
-
-
 
   function resetSession() {
     sessionStorage.clear(); // Clear the session storage
@@ -94,118 +84,58 @@ function Dashboard() {
     startSessionTimer(); // Start the session timer again
   }
 
-
+  const handleAgentChange = (e) => {
+    setSelectedAgent(e.target.value);
+  };
 
   startSessionTimer();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   useEffect(() => {
-
-    getCategories()
-    checkUserRole()
-
-  }, [categories, Description, pimage, color, category_id, cat_id, Newsale, threeimages, Products_id, title, price, color, Description, edittitle, editprice, editDescription, productsdata, season]);
-
-  const getProducts = async (cat_id) => {
-    const response = await axios.get(
-      `http://localhost:3030/product/productbyCategory/${cat_id}`
-    );
-    const products = response.data.map((product) => ({
-      title: product.title,
-      id: product._id,
-    }));
-    // console.log(products);
-    setProducts(products);
-  };
-
-
-  // deleeeeeeeettttttteeeeeeee prooooducts 
-
-
-
-  const deleteproduct = async (id) => {
-    startSessionTimer();
-    const response = await axios.delete(`http://localhost:3030/product/deleteProduct/${id}`)
-
-
-
-
-    toast.success('deleted  successfully!', { position: toast.POSITION.TOP_RIGHT });
-
-
-
-
-
-
-
-    // fawazzzzzzzzzzzzzzzz make the toastifyyyyy for deletion  
-  }
-
-
-
-
-  const getproductsbyid = async (id) => {
-    startSessionTimer();
-    const response = await axios.get(`http://localhost:3030/product//productbyID/${id}`)
-    setproductsdata(response.data)
-    // console.log(response.data)
-    setedittitle(response.data.title)
-    seteditColor(response.data.color)
-    setsizeedit(response.data.size)
-    seteditDescription(response.data.Description)
-    seteditPrice(response.data.price)
-
-
-
-
-
-  }
-
+    getCategories();
+    checkUserRole();
+    getAgent();
+  }, [
+    properties,
+    Description,
+    pimage,
+    color,
+    property_id,
+    cat_id,
+    Newsale,
+    threeimages,
+    Products_id,
+    title,
+    price,
+    color,
+    Description,
+    edittitle,
+    editType,
+    editprice,
+    editDescription,
+    productsdata,
+    price,
+    description,
+    type,
+  ]);
 
   const getCategories = async () => {
-    const response = await axios.get(`http://localhost:3030/cat/category/summer`);
-    const categories = response.data.map((category) => ({
-      id: category._id,
-      name: category.name,
+    const response = await axios.get(`http://localhost:3030/property`);
+    const categories = response.data.map((property) => ({
+      id: property._id,
+      title: property.title,
     }));
-    setcategories(categories)
-  }
-
-
-
-  function handleImage(e) {
-    // console.log(e.target.files)
-    setImage(e.target.files[0])
-  }
-
-
-
-
-  const [productimage, setproductimage] = useState([])
-
+    setproperties(categories);
+  };
+  const getAgent = async () => {
+    const response = await axios.get("http://localhost:3030/agent");
+    const products = response.data.map((agent) => ({
+      name: agent.name,
+      id: agent._id,
+    }));
+    // console.log(products);
+    setAgents(products);
+  };
+  const [productimage, setproductimage] = useState([]);
 
   function handleProductImage(e) {
     const selectedFiles = e.target.files;
@@ -228,225 +158,160 @@ function Dashboard() {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const handlePimage = (e) => {
-    const files = Array.from(e.target.files);
-    const reader = new FileReader();
-
-    files.forEach((file) => {
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const imgData = reader.result;
-        setthreeimages((prevImages) => [...prevImages, imgData]);
-
-      };
-    });
-  };
-
-
   const addCategory = async () => {
     startSessionTimer();
-    const formData = new FormData()
-    formData.append('name', catname)
-    formData.append('season', Newseason)
-    formData.append('sale', sale)
-    formData.append('image', image)
-
-
-    await axios.post("http://localhost:3030/cat", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+    const formData = new FormData();
+    formData.append("title", propname);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("type", type);
+    // Append the image files to the "image[]" field in the FormData
+    for (let i = 0; i < productimage.length; i++) {
+      formData.append("image", productimage[i]); // Append with "image[]" field name
+    }
+    // Append each agent ID to the "agents[]" field in the FormData
+    agents.forEach((agent) => {
+      formData.append("agents", agent.id); // Append with "agents[]" field name
     });
 
-    // console.log(formData);
-    toast.success('Added category  successfully!', { position: toast.POSITION.TOP_RIGHT });
-  }
+    try {
+      await axios.post("http://localhost:3030/property", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-
-
-
+      toast.success("Added category successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSale = (e) => {
     setNewsale(e.target.value);
   };
 
   const putCategory = async () => {
-
-
-
-    const data = { sale: Newsale };
-
-
-    await axios
-
-      .put(`http://localhost:3030/cat/${cat_id}`, {
-        sale: Newsale
-      })
-
-    // console.log(data);
-
-  }
-
-
-
-
-
-
-
-
+    try {
+      const response = await axios.get(`http://localhost:3030/property/${Products_id}`);
+      const property = response.data;
+  
+      const updatedAgents = [...property.agents]; // Create a copy of the agents array
+  
+      const selectedIndex = updatedAgents.indexOf(selectededitAgent);
+  
+      if (selectedIndex > -1) {
+        // If the selectededitAgent exists in the agents array, remove it
+        updatedAgents.splice(selectedIndex, 1);
+      }
+  
+      updatedAgents.push(selectededitAgent); // Add the new agent to the copied array
+  
+      await axios.put(`http://localhost:3030/property/${Products_id}`, {
+        title: edittitle,
+        price: editprice,
+        description: editDescription,
+        type: editType,
+        agents: updatedAgents, // Update the agents array with the modified copy
+      });
+  
+      // Rest of the code...
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 
   const deletecategory = async (id) => {
     startSessionTimer();
-    const response = await axios.delete(`http://localhost:3030/cat/${id}`)
+    const response = await axios.delete(`http://localhost:3030/property/${id}`);
     // console.log(response.data)
 
+    // console.log("the category is deleted ")
+    toast.success("category deleted  successfully!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+  useEffect(() => {
+    console.clear();
+  }, []);
+  const deleteagent = async (id) => {
+    startSessionTimer();
+    const response = await axios.delete(`http://localhost:3030/agent/${property_id}`);
+    // console.log(response.data)
 
     // console.log("the category is deleted ")
-    toast.success('category deleted  successfully!', { position: toast.POSITION.TOP_RIGHT });
-  }
-
-
-
-
-
-
-
-
-
-
-  const handlesize = (event) => {
-    setsize(event.target.value.split(","));
-    // console.log(event.target.value.split(","))
-
-  }
-
-  const handleeditsize = (event) => {
-    setsizeedit(event.target.value.split(","));
-    // console.log(event.target.value.split(","))
-
-  }
-
-
-  const handleeditcolor = (event) => {
-    seteditColor(event.target.value.split(","));
-    // console.log(event.target.value.split(","))
-  };
-  const handlecolor = (event) => {
-    setColor(event.target.value.split(","));
-    // console.log(event.target.value.split(","))
-  };
-
-
-  const addProduct = async () => {
-    startSessionTimer();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("price", price);
-    formData.append("Description", Description);
-
-    formData.append("category", category_id);
-
-    for (let i = 0; i < productimage.length; i++) {
-      formData.append("image", productimage[i]);
-    }
-
-
-
-
-    for (let i = 0; i < size.length; i++) {
-      formData.append("size[]", size[i]);
-    }
-    for (let i = 0; i < color.length; i++) {
-      formData.append("color[]", color[i]);
-    }
-
-    await axios.post("http://localhost:3030/product/product", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+    toast.success("agent deleted  successfully!", {
+      position: toast.POSITION.TOP_RIGHT,
     });
-
-    // console.log(threeimages);
-    // console.log("success product amira");
-    toast.success('Product added successfully!', { position: toast.POSITION.TOP_RIGHT });
   };
+  useEffect(() => {
+    console.clear();
+  }, []);
 
-
-
-
-  const editProduct = async () => {
-    startSessionTimer();
-    const editdata = {
-      title: edittitle,
-      price: editprice,
-      size: [],
-      color: [],
-      Description: editDescription
-    };
-
-    for (let i = 0; i < sizeedit.length; i++) {
-      editdata.size.push(sizeedit[i]);
+  const [data, setData] = useState([]);
+  const [propStuff, setPropStuff] = useState([]);
+  const [propAgent, setPropAgent] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:3030/property");
+        var profitdate = response.data.map((item) => item.agents);
+        setData(response.data);
+        setPropAgent(profitdate);
+        console.log(profitdate);
+      } catch (error) {
+        console.log(error);
+        // Handle error here
+      }
     }
 
-    for (let i = 0; i < editcolor.length; i++) {
-      editdata.color.push(editcolor[i]);
+    fetchData();
+  }, []);
+  const [dataagent, setDataAgent] = useState([]);
+  const [agentStuff, setAgentStuff] = useState([]);
+  useEffect(() => {
+    async function fetchDataagent() {
+      try {
+        const response = await axios.get("http://localhost:3030/agent");
+        setDataAgent(response.data);
+        var hello = response.data.map((item) => item._id);
+        setAgentStuff(hello);
+        console.log(hello);
+      } catch (error) {
+        console.log(error);
+        // Handle error here
+      }
     }
 
-    const response = await axios.put(`http://localhost:3030/product/productUpdate/${Products_id}`, editdata);
+    fetchDataagent();
+  }, []);
 
-    // console.log("response", response);
-    toast.success('Product updated  successfully!', { position: toast.POSITION.TOP_RIGHT });
-    // console.log("success the product is updated  product amira");
+
+  const scroll = () => {
+    var left = document.querySelector(".scroll-devs");
+    left.scrollBy(280, 0);
   };
 
-
-
-
-
-  const OpenAddProducts = () => {
-    document.getElementById("addproductform").style.display = "block";
+  const scrollr = () => {
+    var right = document.querySelector(".scroll-devs");
+    right.scrollBy(-380, 0);
   };
 
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  const CloseAddProducts = () => {
-    document.getElementById("addproductform").style.display = "none";
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
   };
 
-
-  const OpenEditProducts = () => {
-    document.getElementById("editproductform").style.display = "block";
-  }
-
-
-  const CloseEditProducts = () => {
-    document.getElementById("editproductform").style.display = "none";
-  }
-
-
-
-
-
-
-
-
-
-
-
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+    setShowModal(false);
+  };
   const OpenAddCategory = () => {
     document.getElementById("addcategoryform").style.display = "block";
   };
@@ -454,19 +319,15 @@ function Dashboard() {
   const CloseAddCategory = () => {
     document.getElementById("addcategoryform").style.display = "none";
   };
+  const OpenEditCategory = () => {
+    document.getElementById("editcategoryform").style.display = "block";
+  };
 
-
+  const CloseEditCategory = () => {
+    document.getElementById("editcategoryform").style.display = "none";
+  };
 
   const [openIndex, setOpenIndex] = useState(-1);
-
-
-  const handleTriggerClick = (index) => {
-    if (index === openIndex) {
-      setOpenIndex(-1); // Close the open one if clicked again
-    } else {
-      setOpenIndex(index); // Open the clicked one
-    }
-  };
 
   const [images, setImages] = useState([]);
 
@@ -488,74 +349,49 @@ function Dashboard() {
           <img className="logoimg" src={logo} alt="" />
         </div>
 
-
-
         <div>
           {/* winterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrcategoryyyyyyyyyyyyyyyyyyyyyyyy */}
           <Link to="/Winter">
-            <p className="nav-buttons">Winter Categories</p>
+            <p className="nav-buttons">AGENTS</p>
           </Link>
-
         </div>
-
-
 
         <div>
           {/* summmmmer category  */}
           <Link to="/Dashboard">
-            <p className="nav-buttons">Summer Categories</p>
+            <p className="nav-buttons">PROPERTIES</p>
           </Link>
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div>
-
           <Link to="/Orderdashboard ">
-            <p className="nav-buttons">Orders</p>
+            <p className="nav-buttons">BOOKINGS</p>
           </Link>
         </div>
-
-
 
         {/* clear the session and go to the login  */}
 
         <div>
-
-          <Link to="/Login" onClick={() => { sessionStorage.clear(); }}>
-            <p className="nav-buttons">Sign out</p>
+          <Link
+            to="/Login"
+            onClick={() => {
+              sessionStorage.clear();
+            }}
+          >
+            <p className="nav-buttons">SIGN OUT</p>
           </Link>
-
         </div>
-
-
-
-
       </div>
 
       <div className="headers">
         <div className="parent-headder">
           <div className="summer-border">
-            <p className="summer-parag"> Summer Categories</p>
+            <p className="summer-parag">PROPERTIES</p>
           </div>
         </div>
         <br></br>
         <div className="newcategory">
-          <p> Add New Category</p>
+          <p> Add New Property</p>
           <button
             className="addbutton"
             onClick={() => {
@@ -566,255 +402,279 @@ function Dashboard() {
           </button>
         </div>
       </div>
+      <div className="prop-div">
+        <p className="proptitle">PROPERTIES</p>
+        <div className="prop-style">
+          {data.map((item) => (
+            <div className="divi">
+              <div key={item._id}>
+                <div className="prop-det">
+                  <div className="propp">
+                    <div className="prophoto">
+                      <Carousel interval={null}>
+                        {item.image.map((image, index) => (
+                          <Carousel.Item
+                            key={index}
+                            onClick={() => handleImageClick(image)}
+                          >
+                            <img
+                              src={image.url}
+                              className="imageProptResize"
+                              alt={`Slide ${index}`}
+                            />
+                          </Carousel.Item>
+                        ))}
+                      </Carousel>
 
-      <div className="main-body-container">
-        <div className="collaps">
-          {categories &&
-            categories.map((item, index) => (
-              <Collapsible
-                className="collaps-title"
-                trigger={item.name}
-                key={item.id}
-                open={index === openIndex}
-                onOpening={() => {
-                  setcategory_id(item.id);
-                  getProducts(item.id);
-                  setcat_id(item.id)
-                  setOpenIndex(index);
-                }}
-                onClosing={() => setOpenIndex(-1)}
-              >
-                <div className="cat-parent">
-                  <div>
-                    <label>Sale :</label>
-                    <input
-                      type="text"
-                      className="sale-btn"
-                      name="sale"
-                      value={item.sale}
-                      onChange={handleSale}
-                    ></input>
-                    <button className="add-sal" onClick={putCategory}>
-                      Add
-                    </button>
+                      <Modal
+                        show={showModal}
+                        onHide={handleCloseModal}
+                        centered
+                      >
+                        <Modal.Body>
+                          {selectedImage && (
+                            <img
+                              src={selectedImage.url}
+                              className="fullScreenImage"
+                              alt="Full Screen"
+                            />
+                          )}
+                        </Modal.Body>
+                      </Modal>
+                    </div>
+                    <div className="prop-writing">
+                      <div className="prop-title desprop">
+                        <h2>{item.title}</h2>
+                      </div>
+                      <p className="desprop">Description: {item.description}</p>
+                      <p className="desprop">Type: {item.type}</p>
+                    </div>
                   </div>
-
-
-
-
-
-
-
-
-
-                  {/* deleteeeee categoriesss butttonnnnn */}
-                  <button className="del-btn" onClick={() => { deletecategory(item.id) }}  >
-                    <img src={trashcan} alt="" />
-                  </button>
                 </div>
 
-                <div className="flex-row">
-                  <p>add products </p>
-                  <button
-                    onClick={() => {
-                      OpenAddProducts();
-                    }}
-                    className="background-none"
-                  >
-                    {" "}
-                    <img
-                      className="img-adding-button-contet"
-                      src={Addbutton}
-                      alt=""
-                    />
-                  </button>
-                </div>
+                <div className="propwinter">
+                  <p className="heading-prop" id="winterCollection">
+                    Agents{" "}
+                  </p>
 
-                {Products &&
-                  Products.map((product) => (
-                    <div className="content-dashboard" key={product.id}>
-                      <p className="parag-dash-content">{product.title}</p>
-                      <div className="flex-content-end">
-                        <button className="background-none"
-                          onClick={() => { getproductsbyid(product.id); setProducts_id(product.id); OpenEditProducts() }}
-                        >
-                          <img src={editbutton} alt="" />
-                        </button>
-                        <button className="background-none" onClick={() => { deleteproduct(product.id) }}>
-                          <img src={trashcan} alt="" />
-                        </button>
+                  <div className="scroll-prop">
+                    <div className="parent-arrowprop">
+                      <button
+                        className="leftarrowprop"
+                        onClick={() => scrollr()}
+                      >
+                        <img className="arrows-heightsprop" src={leftarrow} />
+                      </button>
+                    </div>
+                    <div className="coverprop">
+                      <div className="scroll-devsprop">
+                        {item.agents.map((agent) => (
+                          <div key={agent._id} className="childprop">
+                            <img
+                              className="child-imageprop"
+                              src={agent.image.url}
+                              alt={agent.name}
+                            />
+                            <p className="child-image-buttonprop">
+                              {agent.name}
+                            </p>
+                            <p className="child-image-buttonprop">
+                              Price:{" "}
+                              {item.price +
+                                (agent.agentprice * item.price) / 100}{" "}
+                              $
+                            </p>
+                            <button
+                              className="del-btn"
+                              onClick={() => {
+                                setproperty_id(agent.id)
+                              }}
+                            >
+                              <img src={trashcan} alt="" />
+                            </button>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  ))}
-              </Collapsible>
-            ))}
+
+                    <div className="parent-arrowprop">
+                      <button
+                        className="leftarrowprop"
+                        onClick={() => scroll()}
+                      >
+                        <img className="arrows-heightsprop" src={rightarrow} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="del-btn"
+                onClick={() => {
+                  OpenEditCategory();
+                  setProducts_id(item.id);
+                }}
+              >
+                <img src={pen} alt="" />
+              </button>
+              <button
+                className="del-btn1"
+                onClick={() => {
+                  setProducts_id(item.id);
+                }}
+              >
+                <img src={trashcan} alt="" />
+              </button>
+            </div>
+          ))}
         </div>
       </div>
-
       <div className="form-popup" id="addcategoryform">
+        <h1>Add Property </h1>
 
-        <h1>Add Category </h1>
-
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter category name" value={catname} onChange={e => setCatname(e.target.value)} required />
+        <label for="name">
+          <b>Title</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter category name"
+          value={propname}
+          onChange={(e) => setPropname(e.target.value)}
+          required
+        />
         <br />
-
-        <label for="psw"><b>Season</b></label>
-        <input type="text" value={season} onChange={e => setSeason(e.target.value)} />
+        <label for="psw">
+          <b>Price</b>
+        </label>
+        <input
+          type="text"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
         <br />
-
-
-
-        <label className="textform" >Sale</label><br />
-        <input type="text" value={sale} onChange={e => setSale(e.target.value)} />
+        <label for="psw">
+          <b>Description</b>
+        </label>
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setdescription(e.target.value)}
+        />
         <br />
-        <div>
-          <label htmlFor="images">Choose Images:</label><br />
-          <input type="file" name="file" onChange={handleImage} /><br />
-
-        </div>
-
-
-
-
-
-
-
-        <button type="submit" className="btn" onClick={addCategory}>Submit</button>
-        <button type="button" className="btn cancel" onClick={() => CloseAddCategory()}>Close</button>
-
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className="form-popup" id="addproductform">
-
-        <h1>Add Products </h1>
-
-        <label for="text"><b>Title</b></label>
-        <input type="text" placeholder="Enter the product name" name="title" required onChange={e => setTitle(e.target.value)} />
+        <label for="psw">
+          <b>Type</b>
+        </label>
+        <input
+          type="text"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+        />
         <br />
-
-        <label for="psw"><b>Price</b></label>
-        <input type="text" placeholder="Enter price" name="psw" required onChange={e => setPrice(e.target.value)} />
-        <br />
-
-
-
-        <label className="textform" >size</label><br />
-        <input type="text" value={size} onChange={handlesize} />
-        <br />
-
-        <label className="textform" >color</label><br />
-        <input type="text" value={color} onChange={handlecolor} />
-        <br />
-
-        <label className="textform" >Description</label><br />
-        <input type="text" onChange={e => setDescription(e.target.value)} />
-        <br />
-
-
+        <label htmlFor="agent">
+          <b>Agent</b>
+        </label>
+        <select
+          id="agent"
+          value={selectedAgent}
+          onChange={(e) => setSelectedAgent(e.target.value)}
+        >
+          <option value="">Select an agent</option>
+          {agents.map((agent) => (
+            <option key={agent.id} value={agent.id}>
+              {agent.name}
+            </option>
+          ))}
+        </select>
         <div>
           <label htmlFor="images">Choose Images:</label>
           <br />
-          <input type="file" id="images" name="file" onChange={handleProductImage} multiple />
+          <input
+            type="file"
+            name="file"
+            onChange={handleProductImage}
+            multiple
+          />
           <br />
-          {threeimages.map((image, index) => (
-            <img key={index} src={image} alt={`Image ${index}`} />
-          ))}
         </div>
 
-
-
-
-
-
-        <button type="submit" className="btn" onClick={() => { addProduct(); CloseAddProducts() }}>Submit</button>
-        <button type="button" className="btn cancel" onClick={() => { CloseAddProducts() }}>Close</button>
-
+        <button type="submit" className="btn" onClick={addCategory}>
+          Submit
+        </button>
+        <button
+          type="button"
+          className="btn cancel"
+          onClick={() => CloseAddCategory()}
+        >
+          Close
+        </button>
       </div>
+      <div className="form-popup" id="editcategoryform">
+        <h1>Edit Property </h1>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* edit product form  */}
-
-
-
-
-
-      <div className="form-popup" id="editproductform">
-
-        <h1>Edit  Products </h1>
-        {/* {productsdata&&productsdata.map((item, index) => (
-    <> */}
-        <label for="text"><b>Title</b></label>
-        <input type="text" placeholder={productsdata && productsdata.title} name="title" required onChange={(e) => { setedittitle(e.target.value) }} />
+        <label for="name">
+          <b>Title</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter category name"
+          value={edittitle}
+          onChange={(e) => setedittitle(e.target.value)}
+          required
+        />
         <br />
-
-        <label for="psw"><b>Price</b></label>
-        <input type="text" placeholder={productsdata && productsdata.price} name="psw" required onChange={(e) => { seteditPrice(e.target.value) }} />
+        <label for="psw">
+          <b>Price</b>
+        </label>
+        <input
+          type="text"
+          value={editprice}
+          onChange={(e) => seteditPrice(e.target.value)}
+        />
         <br />
-
-
-
-        <label className="textform" >size</label><br />
-        <input type="text" placeholder={productsdata && productsdata.size} onChange={handleeditsize} />
+        <label for="psw">
+          <b>Description</b>
+        </label>
+        <input
+          type="text"
+          value={editDescription}
+          onChange={(e) => seteditDescription(e.target.value)}
+        />
         <br />
-
-        <label className="textform" >color</label><br />
-        <input type="text" placeholder={productsdata && productsdata.color} onChange={handleeditcolor} />
+        <label for="psw">
+          <b>Type</b>
+        </label>
+        <input
+          type="text"
+          value={editType}
+          onChange={(e) => seteditType(e.target.value)}
+        />
         <br />
-
-        <label className="textform" >Description</label><br />
-        <input type="text" placeholder={productsdata && productsdata.Description} onChange={e => seteditDescription(e.target.value)} />
-        <br />
-        {/* </>
-))} */}
-
-        <button type="submit" className="btn" onClick={() => { editProduct(); CloseEditProducts() }}>Submit</button>
-        <button type="button" className="btn cancel" onClick={() => { CloseEditProducts() }}>Close</button>
-
+        <label htmlFor="agent">
+          <b>Agent</b>
+        </label>
+        <select
+          id="agent"
+          value={selectededitAgent}
+          onChange={(e) => setSelectededitAgent(e.target.value)}
+        >
+          <option value="">Select an agent</option>
+          {agents.map((agent) => (
+            <option key={agent.id} value={agent.id}>
+              {agent.name}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className="btn" onClick={putCategory}>
+          Submit
+        </button>
+        <button
+          type="button"
+          className="btn cancel"
+          onClick={() => CloseEditCategory()}
+        >
+          Close
+        </button>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 }

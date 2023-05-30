@@ -24,13 +24,17 @@
     margin-left: 0.5rem;
   }
   .del-btn{
-    margin-left: 12rem;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
   }
-  
+  .del-btn1{
+    margin-bottom: 2%;
+    background: none;
+    border: none;
+    padding: 0;
+  }
 .cat-parent{
   display: flex;
   justify-content: space-around;
@@ -490,7 +494,6 @@ input:checked+.slider:before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
     width: 400px;
     padding: 20px;
     border-radius: 10px;
@@ -519,7 +522,6 @@ input:checked+.slider:before {
     margin-bottom: 10px;
     /* border: none; */
     border-radius: 5px;
-    background-color: #f7f7f7;
   }
   
   .form-popup input[type="file"] {

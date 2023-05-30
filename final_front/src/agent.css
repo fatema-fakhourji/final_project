@@ -163,11 +163,6 @@
     display: flex;
     flex-direction: row;
   }
-  .heading-ag {
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
-  }
   .ag1title {
     font-size: 3rem;
     font-family: var(--bs-body-font-family);
@@ -191,7 +186,7 @@
   /* Responsive Styles for width 768px */
 @media (max-width: 768px) {
   .buttonag {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 1%;
   }
 }

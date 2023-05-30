@@ -8,21 +8,24 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .h44 {
   color: white;
 }
-.h44:hover{
-  color: rgb(255, 255, 255, 0.5);
+
+.h44:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
-.submit-login:hover{
-  color: rgb(255, 255, 255, 0.5);
+
+.submit-login:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
+
 .leftog {
   margin-left: 40%;
-  background-color: rgb(1, 18, 88, 0.8);
+  background-color: rgba(1, 18, 88, 0.8);
   width: 25%;
   display: flex;
-  max-height: 60vh;
   margin-top: 12%;
   flex-direction: column;
   color: white;
@@ -59,78 +62,77 @@
 .input-usernamepass {
   font-size: 1.5rem;
 }
-.logooo{
- width: 70%;
- height: 70%;
- margin-left: 15%;
- object-fit: contain;
+
+.logooo {
+  width: 70%;
+  height: 70%;
+  margin-left: 15%;
+  object-fit: contain;
 }
+
 .submit-login {
   font-size: 1.8rem;
   background-color: rgb(86, 94, 129);
   color: white;
 }
-/* 
-body {
 
-} */
-
-@media (min-width: 768px) {
-  .container-login {
+@media screen and (max-width: 768px) {
+  .leftog {
+    margin-left: 40%;
+    background-color: rgba(1, 18, 88, 0.8);
+    width: 80%;
+    display: flex;
     flex-direction: row;
-  }
-
-  .login-leftdiv {
-    width: 50%;
-    padding-top: 10rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .login-rightdiv {
-    display: none;
-  }
-  .container-login {
-    padding: 1rem;
-  }
-
-  .login-leftdiv {
-    padding-top: 2rem;
-  }
-
-  .pablo-login {
-    width: 60%;
-  }
-
-  .login-form-container {
-    width: 90%;
-  }
-
-  .label-usernamepass {
-    font-size: 1.2rem;
-  }
-
-  .input-usernamepass {
-    font-size: 1.2rem;
-  }
-
-  .submit-login {
-    font-size: 1.4rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1000px) {
-  .login-leftdiv {
-    width: 70%;
-    padding-top: 6rem;
-    margin: 0 auto;
+    margin-left: 10%;
+    margin-top: 50%;
+    align-content: center;
+    justify-content: center;
+    margin-top: 25%;
+    flex-direction: column;
+    color: white;
   }
 
   .login-form-container {
     width: 80%;
     max-width: 30rem;
   }
-  .login-rightdiv {
-    display: none;
+
+  .logooo {
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+  }
+
+  .submit-login {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .leftog {
+    margin-left: 40%;
+    background-color: rgba(1, 18, 88, 0.8);
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+  }
+  .login-form-container {
+    width: 90%;
+    max-width: 25rem;
+  }
+
+  .logooo {
+    width: 40%;
+    height: 40%;
+    margin-left: 30%;
+  }
+
+  .submit-login {
+    font-size: 1.3rem;
   }
 }

@@ -85,13 +85,7 @@
 .agwinter {
   width: 90%;
 }
-.scroll-ag {
-  width: 25%;
-  height: 85%;
-  display: flex;
-  margin-bottom: 2%;
-  justify-content: space-between;
-}
+
 .parent-arrowag {
   align-self: center;
 
@@ -170,11 +164,6 @@
 .ag1pag {
   display: flex;
   flex-direction: row;
-}
-.heading-ag {
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
 }
 .ag1title {
   font-size: 3rem;

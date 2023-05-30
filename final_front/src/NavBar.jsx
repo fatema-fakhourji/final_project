@@ -12,25 +12,25 @@ import gmail from "../src/images/gmail.png";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const [show, setshow] = useState(true);
+  const [show, setShow] = useState(false);
 
-  function checkUserRole() {
-    const userRole = sessionStorage.getItem("role");
-    const token = sessionStorage.getItem("token");
+  // function checkUserRole() {
+  //   const userRole = sessionStorage.getItem("role");
+  //   const token = sessionStorage.getItem("token");
 
-    // Get the user's role from session storage
-    if (!token || !userRole) {
-      // User has the 'user' role, so navigate to the desired page
+  //   // Get the user's role from session storage
+  //   if (!token || !userRole) {
+  //     // User has the 'user' role, so navigate to the desired page
 
-      setshow(true);
-    } else {
-      setshow(false);
-    }
-  }
+  //     setshow(true);
+  //   } else {
+  //     setshow(false);
+  //   }
+  // }
 
-  useEffect(() => {
-    checkUserRole();
-  }, []);
+  // useEffect(() => {
+  //   checkUserRole();
+  // }, []);
 
   return (
     <div className="navbar-container">
@@ -39,8 +39,10 @@ function NavBar() {
         <img className="logoimg" src={logo} alt="" srcset="" />
         </Link>
       </div>
-
-      <div className="navigation-buttons">
+      <div className="burger_menu" onClick={()=>{setShow(!show)}}>
+        <i class="ri-menu-fill"></i>
+      </div>
+      <div className={show ? 'navigation-buttons visible ' : 'navigation-buttons hidden'}>
         <Link to={"/Property"}>
           <p className="nav-buttons">PROPERTIES</p>
         </Link>
@@ -50,9 +52,7 @@ function NavBar() {
         <Link to={"/Order"}>
           <p className="nav-buttons">NOT AN AGENCY?</p>
         </Link>
-      </div>
-      <div className="last-header">
-        <Link to={"/Login"} style={{ display: show ? "block" : "none" }}>
+        <Link to={"/Login"}>
           <p className="nav-buttons">SIGN IN</p>
         </Link>
       </div>

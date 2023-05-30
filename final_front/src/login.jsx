@@ -52,7 +52,7 @@ function Login() {
         sessionStorage.setItem("role", response.data.role);
         sessionStorage.setItem("address", response.data.address);
         sessionStorage.setItem("phone", response.data.phone);
-        navigate("/", { replace: true });
+        navigate("/Orderdashboard", { replace: true });
       } else {
         toast.error(response.data.message, {
           position: toast.POSITION.TOP_RIGHT,
