@@ -63,14 +63,14 @@ function Login() {
   const sendEmail = () => {
     emailjs
       .send(
-        "service_jd5xzbk",
-        "template_ydo1j6i",
+        "service_yzj39si",
+        "template_ikapmhd",
         {
           to_email: "fatemaalbatoulfakhourji@gmail.com",
           message:
             "Hello, this is a static message sent from the Contact Us form.",
         },
-        "OZH-I9C8SPG44RNKZ"
+        "wqE3ybyKfFS0jn_kl"
       )
       .then(
         (result) => {

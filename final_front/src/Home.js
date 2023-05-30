@@ -89,11 +89,18 @@ function App() {
       <div className="pablo-description">
         <p className="description-header">About Us</p>
         <p className="description-description" id="about-Us">
-          Welcome to PABLO, your one-stop shop for stylish and affordable men's
-          clothing. Our carefully curated collection features the latest trends
-          in men's fashion, including casual wear, business attire, and formal
-          wear. Pablo also help the customers to find the right clothing and
-          accessories to suit their individual tastes and needs.{" "}
+          Welcome to Casa Mia, your premier destination for all your real estate
+          needs. At Casa Mia, we believe that finding the perfect home is an
+          art, and we are dedicated to helping you unlock the door to your dream
+          property. With a team of experienced professionals and a deep
+          understanding of the real estate market, we are committed to providing
+          exceptional service and personalized guidance to each and every
+          client. Whether you're searching for a cozy apartment, a spacious
+          family home, or a luxurious estate, Casa Mia is here to guide you
+          every step of the way. Trust us to deliver unparalleled expertise,
+          integrity, and a passion for real estate that will make your home
+          buying or selling journey a seamless and rewarding experience. Welcome
+          to Casa Mia, where your vision of home becomes a reality.{" "}
         </p>
       </div>
 

@@ -17,15 +17,15 @@ function Footer() {
     <div>
       <div className="footer">
         <div className="footer-first">
-          <a href="/">
+          <Link to={"/Property"}>
             <p className="footer-first-p ">PROPERTIES </p>
-          </a>
-          <Link to={"/"}>
+          </Link>
+          <Link to={"/Product"}>
             <p className="footer-first-p "> AGENTS </p>
           </Link>
-          <a href="/#winterCollection">
+          <Link to={"/Order"}>
             <p className="footer-first-p ">NOT AN AGENCY?</p>
-          </a>
+          </Link>
         </div>
 
         <div className="fixx">

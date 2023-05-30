@@ -78,7 +78,7 @@ a {
   background-color: rgb(1, 18, 88);
 }
 .pablo-description {
-  height: 18vw;
+  height: auto;
   margin: auto;
   width: 78%;
   /* padding: 10px; */
@@ -197,6 +197,7 @@ a {
   }
   .slideP {
     height: 50vh;
+    z-index: -1;
   }
   .footer {
     height: 20vw;
