@@ -1,0 +1,44 @@
+.bookdash-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.bookdash-style {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 2rem;
+  row-gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+.bookdash-det {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 30%;
+  background-color: rgb(1, 18, 88);
+}
+.bookdash-writing {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+.bookdash-title {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: white;
+}
+.desbookdash {
+  color: white;
+  font-size: 20px !important;
+}
+.delbbokdash {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

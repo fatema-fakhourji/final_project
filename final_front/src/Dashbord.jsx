@@ -195,20 +195,22 @@ function Dashboard() {
 
   const putCategory = async () => {
     try {
-      const response = await axios.get(`http://localhost:3030/property/${Products_id}`);
+      const response = await axios.get(
+        `http://localhost:3030/property/${Products_id}`
+      );
       const property = response.data;
-  
+
       const updatedAgents = [...property.agents]; // Create a copy of the agents array
-  
+
       const selectedIndex = updatedAgents.indexOf(selectededitAgent);
-  
+
       if (selectedIndex > -1) {
         // If the selectededitAgent exists in the agents array, remove it
         updatedAgents.splice(selectedIndex, 1);
       }
-  
+
       updatedAgents.push(selectededitAgent); // Add the new agent to the copied array
-  
+
       await axios.put(`http://localhost:3030/property/${Products_id}`, {
         title: edittitle,
         price: editprice,
@@ -216,18 +218,17 @@ function Dashboard() {
         type: editType,
         agents: updatedAgents, // Update the agents array with the modified copy
       });
-  
+
       // Rest of the code...
     } catch (error) {
       console.error(error);
     }
   };
-  
 
   const deletecategory = async (id) => {
     startSessionTimer();
     const response = await axios.delete(`http://localhost:3030/property/${id}`);
-    // console.log(response.data)
+    console.log(response.data);
 
     // console.log("the category is deleted ")
     toast.success("category deleted  successfully!", {
@@ -239,8 +240,10 @@ function Dashboard() {
   }, []);
   const deleteagent = async (id) => {
     startSessionTimer();
-    const response = await axios.delete(`http://localhost:3030/agent/${property_id}`);
-    // console.log(response.data)
+    const response = await axios.delete(
+      `http://localhost:3030/agent/${property_id}`
+    );
+    console.log(property_id);
 
     // console.log("the category is deleted ")
     toast.success("agent deleted  successfully!", {
@@ -261,6 +264,7 @@ function Dashboard() {
         var profitdate = response.data.map((item) => item.agents);
         setData(response.data);
         setPropAgent(profitdate);
+        console.log(Products_id);
         console.log(profitdate);
       } catch (error) {
         console.log(error);
@@ -288,7 +292,6 @@ function Dashboard() {
 
     fetchDataagent();
   }, []);
-
 
   const scroll = () => {
     var left = document.querySelector(".scroll-devs");
@@ -385,9 +388,7 @@ function Dashboard() {
 
       <div className="headers">
         <div className="parent-headder">
-          <div className="summer-border">
-            <p className="summer-parag">PROPERTIES</p>
-          </div>
+          <p className="summer-parag">PROPERTIES</p>
         </div>
         <br></br>
         <div className="newcategory">
@@ -402,12 +403,11 @@ function Dashboard() {
           </button>
         </div>
       </div>
-      <div className="prop-div">
-        <p className="proptitle">PROPERTIES</p>
+      <div className="dash-div">
         <div className="prop-style">
           {data.map((item) => (
-            <div className="divi">
-              <div key={item._id}>
+            <div className="divi" key={item._id}>
+              <div>
                 <div className="prop-det">
                   <div className="propp">
                     <div className="prophoto">
@@ -487,7 +487,8 @@ function Dashboard() {
                             <button
                               className="del-btn"
                               onClick={() => {
-                                setproperty_id(agent.id)
+                                setproperty_id(agent._id);
+                                deleteagent(agent._id);
                               }}
                             >
                               <img src={trashcan} alt="" />
@@ -512,7 +513,7 @@ function Dashboard() {
                 className="del-btn"
                 onClick={() => {
                   OpenEditCategory();
-                  setProducts_id(item.id);
+                  setProducts_id(item._id);
                 }}
               >
                 <img src={pen} alt="" />
@@ -520,7 +521,7 @@ function Dashboard() {
               <button
                 className="del-btn1"
                 onClick={() => {
-                  setProducts_id(item.id);
+                  deletecategory(item._id);
                 }}
               >
                 <img src={trashcan} alt="" />

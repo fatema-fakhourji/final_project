@@ -1,7 +1,8 @@
 import "./orderdashboard.css";
-import logo from "./images/logo.png";
+import logo from "./images/logoo.png";
 import cartlogo from "./images/cartlogo.png";
 import facebook from "./images/facebook.png";
+import trashcan from "../src/images/bin.svg";
 import whatsapp from "./images/whatsapp.png";
 import instagram from "./images/instagram.png";
 import gmail from "./images/gmail.png";
@@ -27,7 +28,7 @@ function Orderdashbord() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:3030/api/orders");
+      const response = await fetch("http://localhost:3030/booking");
       const json = await response.json();
       setData(json);
       setCartStuff(json.map((item) => item.cart));
@@ -40,7 +41,7 @@ function Orderdashbord() {
   const handleProductClick = async (id) => {
     startSessionTimer();
     const response = await axios.delete(
-      `http://localhost:3030/api/orders/${id}`
+      `http://localhost:3030/booking/${id}`
     );
     // console.log(response)
     toast.success("deleted  successfully!", {
@@ -89,20 +90,20 @@ function Orderdashbord() {
         <div>
           {/* winterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrcategoryyyyyyyyyyyyyyyyyyyyyyyy */}
           <Link to="/Winter">
-            <p className="nav-buttons">Winter Categories</p>
+            <p className="nav-buttons">AGENTS</p>
           </Link>
         </div>
 
         <div>
           {/* summmmmer category  */}
           <Link to="/Dashboard">
-            <p className="nav-buttons">Summer Categories</p>
+            <p className="nav-buttons">PROPERTIES</p>
           </Link>
         </div>
 
         <div>
           <Link to="/Orderdashboard ">
-            <p className="nav-buttons">Orders</p>
+            <p className="nav-buttons">BOOKINGS</p>
           </Link>
         </div>
 
@@ -115,48 +116,35 @@ function Orderdashbord() {
               sessionStorage.clear();
             }}
           >
-            <p className="nav-buttons">Sign out</p>
+            <p className="nav-buttons">SIGN OUT</p>
           </Link>
         </div>
       </div>
       <ToastContainer />
-      <p className="Ordersdash-page">Orders</p>
+      <p className="summer-parag">BOOKINGS</p>
 
-      <div className="ordersdash-div">
-        <div className="orderdash-style">
+      <div className="bookdash-div">
+        <div className="bookdash-style">
           {data.map((item) => (
-            <div className="orderdash-det" key={item._id}>
-              <div className="orderdash-writing">
-                <div className="orderdash-title desOrder">
-                  <h2>Order: {item._id}</h2>
+            <div className="bookdash-det" key={item._id}>
+              <div className="bookdash-writing">
+                <div className="bookdash-title desbook">
+                  <h2>Booking Number: {item._id}</h2>
                 </div>
-                <div className="cartit">
-                  <h3>Cart:</h3>
-                  <ul>
-                    {item.cart.map((cartItem) => (
-                      <li key={cartItem._id}>
-                        <p>Title: {cartItem.title}</p>
-                        <p>Size: {cartItem.size}</p>
-                        <p>Color: {cartItem.color}</p>
-                        <p>Quantity: {cartItem.quantity}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="desOrderdash">
-                  Payment type: {item.payment_type}
+                <p className="desbookdash">
+                  Name: {item.booking}
                 </p>
-                <p className="desOrderdash">Total price: {item.total_price}$</p>
-                <p className="desOrderdash">
-                  Phone_number: {item.phone_number}
+                <p className="desbookdash">Email: {item.email}</p>
+                <p className="desbookdash">
+                  Phone Number: {item.phone}
                 </p>
-                <p className="desOrderdash">Address: {item.address}</p>
-                <p className="desOrderdash">Created at: {item.created_at}</p>
+                <p className="desbookdash">Availability: {item.availability}</p>
+                <p className="desbookdash">Address: {item.address}</p>
               </div>
-              <div className="deldash">
+              <div className="delbbokdash">
                 <img
                   onClick={() => handleProductClick(item._id)}
-                  src={del}
+                  src={trashcan}
                   alt=""
                 />
               </div>
