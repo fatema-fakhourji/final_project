@@ -53,7 +53,7 @@ function Login() {
         availability: availability,
         address: address,
       };
-      const response = await axios.post(`http://localhost:3030/booking`, data);
+      const response = await axios.post(`https://casamia-d2c6.onrender.com/booking`, data);
       setAppointmentScheduled(true); // Update state after successful submission
     } catch (error) {
       console.error(error);

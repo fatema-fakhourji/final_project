@@ -28,7 +28,7 @@ function Orderdashbord() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:3030/booking");
+      const response = await fetch("https://casamia-d2c6.onrender.com/booking");
       const json = await response.json();
       setData(json);
       setCartStuff(json.map((item) => item.cart));
@@ -41,7 +41,7 @@ function Orderdashbord() {
   const handleProductClick = async (id) => {
     startSessionTimer();
     const response = await axios.delete(
-      `http://localhost:3030/booking/${id}`
+      `https://casamia-d2c6.onrender.com/booking/${id}`
     );
     // console.log(response)
     toast.success("deleted  successfully!", {

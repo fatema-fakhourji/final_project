@@ -119,7 +119,7 @@ function Dashboard() {
   ]);
 
   const getCategories = async () => {
-    const response = await axios.get(`http://localhost:3030/property`);
+    const response = await axios.get(`https://casamia-d2c6.onrender.com/property`);
     const categories = response.data.map((property) => ({
       id: property._id,
       title: property.title,
@@ -127,7 +127,7 @@ function Dashboard() {
     setproperties(categories);
   };
   const getAgent = async () => {
-    const response = await axios.get("http://localhost:3030/agent");
+    const response = await axios.get("https://casamia-d2c6.onrender.com/agent");
     const products = response.data.map((agent) => ({
       name: agent.name,
       id: agent._id,
@@ -175,7 +175,7 @@ function Dashboard() {
     });
 
     try {
-      await axios.post("http://localhost:3030/property", formData, {
+      await axios.post("https://casamia-d2c6.onrender.com/property", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -196,7 +196,7 @@ function Dashboard() {
   const putCategory = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3030/property/${Products_id}`
+        `https://casamia-d2c6.onrender.com/property/${Products_id}`
       );
       const property = response.data;
 
@@ -211,7 +211,7 @@ function Dashboard() {
 
       updatedAgents.push(selectededitAgent); // Add the new agent to the copied array
 
-      await axios.put(`http://localhost:3030/property/${Products_id}`, {
+      await axios.put(`https://casamia-d2c6.onrender.com/property/${Products_id}`, {
         title: edittitle,
         price: editprice,
         description: editDescription,
@@ -227,7 +227,7 @@ function Dashboard() {
 
   const deletecategory = async (id) => {
     startSessionTimer();
-    const response = await axios.delete(`http://localhost:3030/property/${id}`);
+    const response = await axios.delete(`https://casamia-d2c6.onrender.com/property/${id}`);
     console.log(response.data);
 
     // console.log("the category is deleted ")
@@ -241,7 +241,7 @@ function Dashboard() {
   const deleteagent = async (id) => {
     startSessionTimer();
     const response = await axios.delete(
-      `http://localhost:3030/agent/${property_id}`
+      `https://casamia-d2c6.onrender.com/agent/${property_id}`
     );
     console.log(property_id);
 
@@ -260,7 +260,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3030/property");
+        const response = await axios.get("https://casamia-d2c6.onrender.com/property");
         var profitdate = response.data.map((item) => item.agents);
         setData(response.data);
         setPropAgent(profitdate);
@@ -279,7 +279,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchDataagent() {
       try {
-        const response = await axios.get("http://localhost:3030/agent");
+        const response = await axios.get("https://casamia-d2c6.onrender.com/agent");
         setDataAgent(response.data);
         var hello = response.data.map((item) => item._id);
         setAgentStuff(hello);

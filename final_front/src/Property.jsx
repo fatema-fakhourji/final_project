@@ -24,7 +24,7 @@ function Prop() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3030/property");
+        const response = await axios.get("https://casamia-d2c6.onrender.com/property");
         var profitdate = response.data.map((item) => item.agents);
         setData(response.data);
         setPropAgent(profitdate);
@@ -43,7 +43,7 @@ function Prop() {
   useEffect(() => {
     async function fetchDataagent() {
       try {
-        const response = await axios.get("http://localhost:3030/agent");
+        const response = await axios.get("https://casamia-d2c6.onrender.com/agent");
         setDataAgent(response.data);
         var hello = response.data.map((item) => item._id);
         setAgentStuff(hello);

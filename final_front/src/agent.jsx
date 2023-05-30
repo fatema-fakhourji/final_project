@@ -26,7 +26,7 @@ function Prop() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3030/agent/${agentID.id}`
+          `https://casamia-d2c6.onrender.com/agent/${agentID.id}`
         );
         setData(response.data);
       } catch (error) {

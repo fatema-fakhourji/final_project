@@ -59,7 +59,7 @@ function Signup() {
         phone: phone,
         name: name,
       };
-      const response = await axios.post(`http://localhost:3030/users`, data);
+      const response = await axios.post(`https://casamia-d2c6.onrender.com/users`, data);
 
       // console.log(response.data.message)
       if (response.data.message == "User created successfully.") {

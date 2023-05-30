@@ -35,7 +35,7 @@ function Login() {
     try {
       const data = { email: username, password: password };
       const response = await axios.post(
-        `http://localhost:3030/users/login`,
+        `https://casamia-d2c6.onrender.com/users/login`,
         data
       );
       console.log(response.data.role);
